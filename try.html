@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <style>
+        /* Stil für die Punkte */
+        .point {
+            border: none;
+            background-color: transparent;
+            text-align: left;
+            cursor: pointer;
+        }
+        /* Stil für ausgewählte Punkte */
+        .point.selected {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul><strong>Aufgabenliste:</strong></ul>
+        <ul><strong>Reinigung:</strong></ul>
+            <!-- Buttons als Punkte -->
+            <button type="button" class="point">Küche reinigen (inklusive Herd, Spüle, Arbeitsflächen, Kühlschrank, Mikrowelle)</button>
+            <button type="button" class="point">Gemeinschaftsbereiche (Wohnzimmer, Essbereich) staubsaugen und wischen.</button>
+            <button type="button" class="point">Badezimmer reinigen (Toilette, Waschbecken, Dusche/Badewanne, Spiegel).</button>
+            <button type="button" class="point">Böden in allen Zimmern staubsaugen oder wischen.</button>
+            <button type="button" class="point">Müll in allen Zimmern leeren und Müllsäcke austauschen.</button>
+            <button type="button" class="point">Gemeinschaftliche Bereiche organisieren und aufräumen (z. B. Zeitschriften sortieren, Kissen aufschütteln).</button>
+        <ul><strong>Gemeinschaftliche Aufgaben:</strong></ul>
+            <button type="button" class="point">Gemeinsame Einkäufe erledigen (Lebensmittel, Reinigungsprodukte, Toilettenartikel usw.).</button>
+            <button type="button" class="point">Entsorgung von Altglas, Papier und Plastik entsprechend den örtlichen Recyclingrichtlinien.</button>
+            <button type="button" class="point">Überprüfung des Vorrats an Reinigungsprodukten und gemeinsame Entscheidung über Nachbestellungen.</button>
+            <button type="button" class="point">Planung und Organisation gemeinsamer Aktivitäten (z. B. gemeinsames Abendessen, Spieleabende).</button>
+        <ul><strong>Kommunikation und Organisation:</strong></ul>
+            <button type="button" class="point">Überprüfung des gemeinsamen Kalenders für wichtige Termine oder Ereignisse.</button>
+            <button type="button" class="point">Organisation von Mitbewohner-Meetings zur Besprechung von Anliegen oder Problemen.</button>
+            <button type="button" class="point">Aktualisierung von Notizen oder Anschlagtafeln für wichtige Mitteilungen.</button>
+            <button type="button" class="point">Koordination von Aufgaben oder Verantwortlichkeiten für die kommende Woche.</button>
+        <ul><strong>Sonstiges:</strong></ul>
+            <button type="button" class="point">Überprüfung von Geräten auf etwaige Probleme (z. B. Glühbirnen austauschen, undichte Wasserhähne reparieren).</button>
+            <button type="button" class="point">Überprüfung des Sicherheitszustands der Wohnung (z. B. Funktionstüchtigkeit von Rauchmeldern).</button>
+            <button type="button" class="point">Planung von Gästeaufenthalten oder Besuchen.</button>
+            <button type="button" class="point">Besprechung von finanziellen Angelegenheiten (z. B. Mietzahlungen, gemeinsame Ausgaben).</button>
+    </div>
+
+    <script>
+        // JavaScript, um den ausgewählten Zustand der Punkte zu ändern
+        const points = document.querySelectorAll('.point');
+        points.forEach(point => {
+            point.addEventListener('click', () => {
+                point.classList.toggle('selected');
+            });
+        });
+    </script>
+</body>
+</html>
