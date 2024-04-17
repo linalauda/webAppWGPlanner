@@ -7,3 +7,5 @@ points.forEach(point => {
         point.classList.toggle('selected');
     });
 });
+
+fetch("http://127.0.0.1:8000/v1/LISTE/name")

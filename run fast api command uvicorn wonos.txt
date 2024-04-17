@@ -1,0 +1,13 @@
+C:\Users\admin\AppData\Roaming\Python\Python312\Scripts\pipenv.exe
+
+ C:\Users\admin\AppData\Roaming\Python\Python312\Scripts\pipenv.exe install uvicorn
+
+C:\Users\admin\AppData\Roaming\Python\Python312\Scripts\pipenv.exe shell   
+
+uvicorn.exe main:app --reload
+PS C:\Users\admin\Desktop\Uni\4 Semester\FALLSTUDIE SOFTWARE-ENGINEERING\WebAppWG> uvicorn.exe main:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\Uni\\4 Semester\\FALLSTUDIE SOFTWARE-ENGINEERING\\WebAppWG']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [2172] using StatReload
+
+
