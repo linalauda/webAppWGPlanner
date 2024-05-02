@@ -4,22 +4,23 @@ function Calendar() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [calendarDays, setCalendarDays] = useState([]);
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   useEffect(() => {
     createCalendar(currentYear, currentMonth);
   }, [currentYear, currentMonth]);
 
-  function createCalendar(year, month) {
+  function createCalendar(year = new Date().getFullYear(), month = new Date().getMonth()) {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDayOfMonth = new Date(year, month, 1).getDay();
+    const firstDayOfWeek = (firstDayOfMonth === 0) ? 6 : firstDayOfMonth - 1; // Anpassung für Montag als ersten Wochentag
     const newCalendarDays = [];
 
-    // Erstelle Tage im Kalender
     let date = 1;
     for (let i = 0; i < 6; i++) {
       const week = [];
       for (let j = 0; j < 7; j++) {
-        if (i === 0 && j < firstDayOfMonth) {
+        if (i === 0 && j < firstDayOfWeek) {
           week.push(null);
         } else if (date > daysInMonth) {
           break;
@@ -62,24 +63,25 @@ function Calendar() {
 
   return (
     <div className="calendar">
-      <div className="calendar-header">
-        <button onClick={previousMonth}>Previous Month</button>
-        <h2>{`${getMonthName(currentMonth)} ${currentYear}`}</h2>
-        <button onClick={nextMonth}>Next Month</button>
-      </div>
-      <table>
+      <h2 id="month-year">{months[currentMonth]} {currentYear}</h2>
+      <button onClick={previousMonth}>Previous Month</button>
+      <button onClick={nextMonth}>Next Month</button>
+      <table id="calendar-body">
         <thead>
           <tr>
-            <th>Sun</th>
             <th>Mon</th>
             <th>Tue</th>
             <th>Wed</th>
             <th>Thu</th>
             <th>Fri</th>
             <th>Sat</th>
+            <th>Sun</th>
           </tr>
         </thead>
         <tbody>
+          {/* Hier können Sie die Tage des Kalenders einfügen */}
+          {/* Beachten Sie, dass Sie die calendarDays-Variable verwenden können, um die Tage zu generieren */}
+          {/* Zum Beispiel: */}
           {calendarDays.map((week, index) => (
             <tr key={index}>
               {week.map((day, dayIndex) => (
@@ -91,11 +93,6 @@ function Calendar() {
       </table>
     </div>
   );
-}
-
-function getMonthName(monthIndex) {
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  return months[monthIndex];
 }
 
 export default Calendar;
