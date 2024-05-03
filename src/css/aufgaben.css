@@ -1,0 +1,30 @@
+/* aufgaben.css */
+
+#button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #1c6e2f;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #task-list {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    list-style-type: none;
+  }
+  
+  #aufgabe-button {
+    color: #333;
+    text-decoration: none;
+    background-color: white;
+    border: none;
+  }
+
+  

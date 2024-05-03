@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import '../css/calendar.css';
+import Logo from '../Logo.png';
+import { Link } from 'react-router-dom';
+import Aufgaben from './Aufgaben';
 
 function Calendar() {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [calendarDays, setCalendarDays] = useState([]);
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   useEffect(() => {
     createCalendar(currentYear, currentMonth);
@@ -13,28 +18,28 @@ function Calendar() {
   function createCalendar(year = new Date().getFullYear(), month = new Date().getMonth()) {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const firstDayOfWeek = (firstDayOfMonth === 0) ? 6 : firstDayOfMonth - 1; // Anpassung für Montag als ersten Wochentag
+    const firstDayOfWeek = (firstDayOfMonth === 0) ? 6 : firstDayOfMonth - 1;
     const newCalendarDays = [];
-
+  
     let date = 1;
-    for (let i = 0; i < 6; i++) {
-      const week = [];
-      for (let j = 0; j < 7; j++) {
-        if (i === 0 && j < firstDayOfWeek) {
-          week.push(null);
-        } else if (date > daysInMonth) {
-          break;
-        } else {
-          week.push(date);
-          date++;
-        }
-      }
-      newCalendarDays.push(week);
+    let currentWeek = [];
+  
+    for (let i = 0; i < firstDayOfWeek; i++) {
+      currentWeek.push(null);
     }
-
+  
+    for (let i = 0; i < daysInMonth; i++) {
+      currentWeek.push(date);
+      if (currentWeek.length === 7 || date === daysInMonth) {
+        newCalendarDays.push(currentWeek);
+        currentWeek = [];
+      }
+      date++;
+    }
+  
     setCalendarDays(newCalendarDays);
   }
-
+  
   function previousMonth() {
     setCurrentMonth(prevMonth => {
       let newMonth = prevMonth - 1;
@@ -62,35 +67,35 @@ function Calendar() {
   }
 
   return (
-    <div className="calendar">
-      <h2 id="month-year">{months[currentMonth]} {currentYear}</h2>
-      <button onClick={previousMonth}>Previous Month</button>
-      <button onClick={nextMonth}>Next Month</button>
-      <table id="calendar-body">
-        <thead>
-          <tr>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-            <th>Sun</th>
-          </tr>
-        </thead>
-        <tbody>
-          {/* Hier können Sie die Tage des Kalenders einfügen */}
-          {/* Beachten Sie, dass Sie die calendarDays-Variable verwenden können, um die Tage zu generieren */}
-          {/* Zum Beispiel: */}
+    <div className="hintergrund">
+      <img src={Logo} alt="Logo" id="logo-image"/>
+      <h1 id="slogan">"plan today, change tomorrow!"</h1>
+      <div className="calendar">
+        <div className="calendar-header">
+          <h2 id="month-year">
+            <button className="arrow-button" onClick={previousMonth}>{'<'}</button>
+            {months[currentMonth]} {currentYear}
+            <button className="arrow-button" onClick={nextMonth}>{'>'}</button>
+          </h2>
+        </div>
+        <div id="all-weeks">
+          <div className="weekdays">
+            {weekdays.map((weekday, index) => (
+              <div key={index} className="weekday">{weekday}</div>
+            ))}
+          </div>
           {calendarDays.map((week, index) => (
-            <tr key={index}>
+            <div key={index} className="calendar-week">
               {week.map((day, dayIndex) => (
-                <td key={dayIndex}>{day}</td>
+                <div key={dayIndex} className={`calendar-day ${day === null ? 'empty' : ''}`}>{day}</div>
               ))}
-            </tr>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      </div>
+      <div id= "aufgaben">
+      {<Aufgaben />}
+      </div>
     </div>
   );
 }

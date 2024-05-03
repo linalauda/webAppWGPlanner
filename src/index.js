@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DropdownMenu from './js/DropdownMenu';
+import Aufgaben from './js/Aufgaben';
 import DetailView from './js/DetailView';
 import Calendar from './js/Calendar';
+import './css/index.css';
 
 function App() {
   const [selectedItemId, setSelectedItemId] = useState(null);
@@ -15,9 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DropdownMenu onItemClick={handleItemClick} />} />
-        <Route path="/detail/:id" element={<DetailView />} />
-        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/" element={<Calendar />} />
       </Routes>
     </BrowserRouter>
   );

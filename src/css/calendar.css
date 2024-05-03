@@ -1,0 +1,100 @@
+/* calendar.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.calendar {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  margin: auto; 
+  margin-top: 80px;
+  padding: 20px;
+  max-width:800px; 
+  color: #292f36;
+}
+
+.arrow-button {
+  margin: 0 5px; 
+  padding: 10px 20px; 
+  border: none;
+  background: none;
+  font-size: 24px; 
+  cursor: pointer;
+  color: #707070;
+}
+
+#month-year {
+  font-size: 30px; 
+  text-align: center;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-between; 
+  padding: 10px 0; 
+}
+
+.weekday {
+  flex: 1; 
+  text-align: center; 
+  font-size: 25px;
+}
+
+.calendar-day {
+    display: inline-block; 
+    width: 100px; 
+    height: 55px; 
+    border: 1px solid white; 
+    border-radius: 10%; 
+    margin: 5px; 
+    text-align: left; 
+    font-size: 30px;
+    line-height: 35px; 
+    background-color: white; 
+}
+  
+.calendar-day.empty {
+    width: 100px;
+    height: 30px; 
+    border: none; 
+    margin: 6px; 
+    background-color: #f1ebeb;
+}
+
+#calendar-body {
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+#all-weeks {
+  background-color: #f1ebeb;
+  border: 1px solid white; 
+  border-radius: 4%;
+  margin-bottom: 10px;
+}
+
+#logo-image {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  width: 15%; 
+  height: auto;
+}
+
+#slogan {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
+.hintergrund {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold; 
+  color: #292f36;
+}
+
+#aufgaben {
+  position: absolute;
+  bottom: 180px;
+  left: 1140px;
+}
