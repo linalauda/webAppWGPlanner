@@ -20,10 +20,10 @@ Base = declarative_base()
 
 '''Create a database URL for SQLAlchemy'''
 
-#создаем базовый класс для моделей
+
 class Base(DeclarativeBase): pass
  
-# создаем модель, объекты которой будут храниться в бд
+
 class Person(Base):
     __tablename__ = "people"
  
@@ -31,8 +31,8 @@ class Person(Base):
     name = Column(String)
     age = Column(Integer,)
  
-# создаем таблицы
+
 Base.metadata.create_all(bind=engine)
  
-# приложение, которое ничего не делает
+
 app = FastAPI()
