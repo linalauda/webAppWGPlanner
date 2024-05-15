@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/calendar.css';
 import Logo from '../Logo.png';
-import { Link } from 'react-router-dom';
 import Aufgaben from './Aufgaben';
 import { useTasks } from './taskUtils'; 
 
