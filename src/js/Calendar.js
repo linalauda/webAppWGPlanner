@@ -3,11 +3,18 @@ import '../css/calendar.css';
 import Logo from '../Logo.png';
 import { Link } from 'react-router-dom';
 import Aufgaben from './Aufgaben';
+import { useTasks } from './taskUtils'; 
 
 function Calendar() {
+  const { tasks } = useTasks(); 
+
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [calendarDays, setCalendarDays] = useState([]);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [selectedDayTasks, setSelectedDayTasks] = useState([]);
+  const [selectedTaskTip, setSelectedTaskTip] = useState(null);
+
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
@@ -29,7 +36,14 @@ function Calendar() {
     }
   
     for (let i = 0; i < daysInMonth; i++) {
-      currentWeek.push(date);
+      const tasksForDay = tasks.filter(task => {
+        const taskDate = new Date(task.date);
+        return taskDate.getFullYear() === year &&
+               taskDate.getMonth() === month &&
+               taskDate.getDate() === date;
+      });
+      
+      currentWeek.push({ day: date, tasks: tasksForDay });
       if (currentWeek.length === 7 || date === daysInMonth) {
         newCalendarDays.push(currentWeek);
         currentWeek = [];
@@ -66,6 +80,25 @@ function Calendar() {
     });
   }
 
+  useEffect(() => {
+    if (selectedDay !== null) {
+      const tasksForSelectedDay = tasks.filter(task => {
+        const taskDate = new Date(task.date);
+        return taskDate.getFullYear() === currentYear &&
+               taskDate.getMonth() === currentMonth &&
+               taskDate.getDate() === selectedDay;
+      });
+      setSelectedDayTasks(tasksForSelectedDay);
+    }
+  }, [selectedDay, tasks, currentYear, currentMonth]);
+
+  const showTaskTip = (taskId) => {
+    const task = tasks.find(task => task.id === taskId);
+    if (task && task.tip) {
+      setSelectedTaskTip(task.tip);
+    }
+  };
+
   return (
     <div className="hintergrund">
       <img src={Logo} alt="Logo" id="logo-image"/>
@@ -84,20 +117,65 @@ function Calendar() {
               <div key={index} className="weekday">{weekday}</div>
             ))}
           </div>
-          {calendarDays.map((week, index) => (
-            <div key={index} className="calendar-week">
-              {week.map((day, dayIndex) => (
-                <div key={dayIndex} className={`calendar-day ${day === null ? 'empty' : ''}`}>{day}</div>
-              ))}
+          {calendarDays.map((week, weekIndex) => (
+            <div key={weekIndex} className="calendar-week">
+              {week.map((day, dayIndex) => {
+                const taskColor = day && day.tasks.length > 0 ? '#1c6e2f' : ''; // Setze die Farbe basierend auf der Anzahl der Aufgaben
+
+                return (
+                  <button
+                    key={dayIndex}
+                    className={`calendar-day ${!day ? 'empty' : ''}`}
+                    style={{ borderLeftColor: taskColor, borderLeftWidth: day && day.tasks.length > 0 ? '5px' : '0px' }} // Ändere die Linienstärke und -farbe basierend auf der Anzahl der Aufgaben
+                    onClick={() => setSelectedDay(day ? day.day : null)}
+                  >
+                    {day && (
+                      <div className="day-text">{day.day}</div>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           ))}
         </div>
       </div>
-      <div id= "aufgaben">
-      {<Aufgaben />}
+      {selectedDay && (
+        <div className="modal-container">
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={() => setSelectedDay(null)}>&times;</span>
+              <h3>{selectedDay}.{currentMonth + 1}.{currentYear}</h3>
+              <p>Anstehende Aufgaben:</p>
+              <ul id= "task-list">
+                {selectedDayTasks.map((task, index) => (
+                  <li key={index}>
+                    <span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}
+                    <button className="tip-button" onClick={() => showTaskTip(task.id)}>Tip</button>
+                    <button className="edit-button">Ändern</button>
+                    <button className="delete-button">Löschen</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+      {selectedTaskTip && (
+        <div className="modal-container">
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={() => setSelectedTaskTip(null)}>&times;</span>
+              <h3>Tipp für die Aufgabe</h3>
+              <p>{selectedTaskTip}</p>
+            </div>
+          </div>
+        </div>
+      )}
+      <div id="aufgaben">
+       <Aufgaben /> 
       </div>
     </div>
   );
 }
-
+  
 export default Calendar;
