@@ -1,0 +1,17 @@
+.hintergrund {
+background-color: #ffffff;
+}
+.butto-kalender {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Standardhintergrundfarbe */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Animationsübergang */
+}
+
+.button-kalender:hover {
+    background-color: #0056b3; /* Farbe bei Hover */
+}

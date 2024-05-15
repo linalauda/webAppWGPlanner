@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Aufgaben from './js/Aufgaben';
 import DetailView from './js/DetailView';
 import Calendar from './js/Calendar';
+import Dashboard from './js/dashboard';
 import './css/index.css';
 
 function App() {
