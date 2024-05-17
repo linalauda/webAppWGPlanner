@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import '../css/registrierungs.css';
 import Logo from '../Logo.png';
 import User from '../user.png';
+import Checked from '../checked.png';
 import ScrollableSelect from './scroll';
 
 function RegistrationPage() {
@@ -12,6 +13,7 @@ function RegistrationPage() {
   const [showDOBForm, setShowDOBForm] = useState(false);
   const [showAdditionalForm, setShowAdditionalForm] = useState(false);
   const [showThirdForm, setShowThirdForm] = useState(false);
+  const [showFinishedForm, setShowFinishedForm] = useState(false);
   const [day, setDay] = useState(1);
   const [month, setMonth] = useState(1);
   const [year, setYear] = useState(new Date().getFullYear());
@@ -63,6 +65,8 @@ function RegistrationPage() {
     e.preventDefault();
     console.log('Third form submitted');
     console.log('Third input value:', thirdInputValue);
+    setShowThirdForm(false);
+    setShowFinishedForm(true);
   };
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -130,7 +134,6 @@ function RegistrationPage() {
               type="text"
               value={thirdInputValue}
               onChange={(e) => setThirdInputValue(e.target.value)}
-              required
               className="Bio"
               placeholder="Schreibe etwas über dich..."
               />
@@ -138,8 +141,9 @@ function RegistrationPage() {
             <button type="button" id="login" onClick={() => setShowAdditionalForm(true) && setShowThirdForm(false)}>Zurück</button>
             <button type="submit" id="bestätigen">Weiter</button>
           </form>
-        ) : showFinishedFormular ? (
+        ) : showFinishedForm ? (
           <div>
+            <img src={Checked} alt="Checked" className="checked"/>
           </div>
         ) : (
           <div>
