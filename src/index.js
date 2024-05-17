@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Aufgaben from './js/Aufgaben';
+import Registration from './js/registrierung';
 import Dashboard from './js/dashboard';
 import Calendar from './js/Calendar';
 import './css/index.css';
@@ -16,8 +16,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/" element={<Dashboard />} />
+        <Route path="/calendar" element={<Calendar />} />
       </Routes>
     </BrowserRouter>
   );

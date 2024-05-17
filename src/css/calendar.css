@@ -5,7 +5,7 @@
 .calendar {
   font-family: 'Ubuntu', sans-serif;
   margin: auto; 
-  margin-top: 80px;
+  margin-top: 50px;
   padding: 20px;
   max-width:800px; 
   color: #292f36;
@@ -19,6 +19,7 @@
   font-size: 24px; 
   cursor: pointer;
   color: #707070;
+  font-weight: bolder;
 }
 
 #month-year {
@@ -36,6 +37,7 @@
   flex: 1; 
   text-align: center; 
   font-size: 25px;
+  font-weight: bold;
 }
 
 .calendar-day {
@@ -85,11 +87,11 @@
   position: fixed;
   bottom: 0;
   left: 50px;
+  font-weight: bold;
 }
 
 .hintergrund {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold; 
+  font-family: 'Ubuntu', sans-serif; 
   color: #292f36;
 }
 
@@ -115,12 +117,13 @@
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  width: 500px;
+  width: 700px;
+  height: 500px;
 }
 
 .modal-content {
   text-align: left;
-  font-size: x-large;
+  font-size: 20px;;
 }
 
 .close {
@@ -134,23 +137,37 @@
 .tip-button{
   background-color: #1c6e2f;
   border-radius: 25px;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
+  border:none;
 }
 
 #tip-image {
-  width: 100%; 
+  width: 50%; 
 }
 
 .edit-button{
   background-color: #1c6e2f;
-  text-decoration-color: white;
+  color: white;
   border-radius: 25px;
+  width: 70px;
+  height: 30px;
+  border:none;
+  
 }
 
 .delete-button{
-
+  border-radius: 25px;
+  border-color: #1c6e2f;
+  border-style: solid;
+  width: 70px;
+  height: 30px;
 }
+ 
+.spalte {
+  width: calc(100% / 2); 
+}
+
 
 #task-list {
   background-color: white;

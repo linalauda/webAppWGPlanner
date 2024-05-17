@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../css/calendar.css';
 import Logo from '../Logo.png';
 import Tip from '../Idee.png';
-import { Link } from 'react-router-dom';
 import Aufgaben from './Aufgaben';
 import { useTasks } from './taskUtils'; 
 
@@ -85,6 +84,7 @@ function Calendar() {
     if (selectedDay !== null) {
       const tasksForSelectedDay = tasks.filter(task => {
         const taskDate = new Date(task.date);
+        const taskPerson = new String(task.person);
         return taskDate.getFullYear() === currentYear &&
                taskDate.getMonth() === currentMonth &&
                taskDate.getDate() === selectedDay;
@@ -145,38 +145,47 @@ function Calendar() {
           <div className="modal">
             <div className="modal-content">
               <span className="close" onClick={() => setSelectedDay(null)}>&times;</span>
-              <h3 style={{fontWeight: 'bold', fontsize: '100px'}}>{selectedDay}</h3>
+              <h3 style={{fontWeight: 'bold', fontSize: '40px'}}>{selectedDay}</h3>
               <p style={{fontWeight: 'bold'}}>Anstehende Aufgaben:</p>
-              <ul id= "task-list">
-                {selectedDayTasks.map((task, index) => (
-                  <li key={index}>
-                    <span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}
-                    <button className="tip-button" onClick={() => showTaskTip(task.id)}><img src={Tip} alt="Tip" id="tip-image"/></button>
-                    <button className="edit-button">Ändern</button>
-                    <button className="delete-button">Löschen</button>
-                  </li>
-                ))}
-              </ul>
+              <table> {/* Tabelle für Aufgaben und Buttons */}
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody >
+                  {selectedDayTasks.map((task, index) => (
+                    <tr key={index}>
+                
+                      <td className="spalte"><span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}</td>
+                      <td className="spalte">{task.person}</td>
+                      <td className="spalte">
+                        <button className="tip-button" onClick={() => showTaskTip(task.id)}>
+                          <img src={Tip} alt="Tip" id="tip-image"/>
+                        </button>
+                      </td>
+                      <td></td>
+                      <td className="spalte"><button className="edit-button">Ändern</button></td>
+                      <td className="spalte"><button className="delete-button">Löschen</button></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       )}
-      {selectedTaskTip && (
-        <div className="modal-container">
-          <div className="modal">
-            <div className="modal-content">
-              <span className="close" onClick={() => setSelectedTaskTip(null)}>&times;</span>
-              <h3>Tipp für die Aufgabe</h3>
-              <p>{selectedTaskTip}</p>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Andere Modal-Elemente hier ... */}
       <div id="aufgaben">
-       <Aufgaben /> 
+        <Aufgaben /> 
       </div>
     </div>
   );
 }
-  
+
 export default Calendar;
