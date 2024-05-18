@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
 .hintergrund {
 background-color: #ffffff;
 }
@@ -14,4 +18,59 @@ background-color: #ffffff;
 
 .button-kalender:hover {
     background-color: #0056b3; /* Farbe bei Hover */
+}
+
+.logo-image {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    width: 15%; 
+    height: auto;
+  }
+
+.slogan {
+    position: fixed;
+    bottom: 0px;
+    left: 50px;
+    font-weight: bold;
+  }
+
+.user-image {
+    position: fixed;
+    top: 74px;
+    right: 74px;
+    width: 1.5%; 
+    height: auto;
+  }
+
+.logout-image {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 2%; 
+    height: auto;
+  }
+
+.grauerKreis {
+    position: fixed;
+    width: 80px;             
+    height: 80px; 
+    top: 50px;
+    right: 50px;           
+    background-color: #F1EBEB;  
+    border-radius: 50%;       
+}
+.flex-container {
+    display: flex;
+            justify-content: space-around; /* Platz um die Elemente herum */
+            align-items: center; /* Vertikale Zentrierung */
+            height: 200px;
+            border: 1px solid #000;  
+}
+
+.flex-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
 }
