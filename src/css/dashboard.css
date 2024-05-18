@@ -60,6 +60,78 @@ background-color: #ffffff;
     background-color: #F1EBEB;  
     border-radius: 50%;       
 }
+
+.grünesRechteck1 {
+    background-color: #1C6E2F;
+    position: fixed;
+    top: 360px; 
+    left: 260px;
+    width: 400px;            
+    height: 160px;           
+    border-radius: 20px;     
+}
+
+.grünesRechteck2 {
+    background-color: #3FBF5C;
+    position: fixed; 
+    top: 540px; 
+    left: 260px;
+    width: 400px;            
+    height: 160px;           
+    border-radius: 20px;     
+}
+
+.grünesRechteck3 {
+    background-color: #289842;
+    position: fixed; 
+    top: 360px; 
+    left: 680px;
+    width: 160px;            
+    height: 340px;           
+    border-radius: 20px;     
+}
+
+.grünesRechteck4 {
+    background-color: #3FBF5C;
+    position: fixed;
+    top: 360px; 
+    left: 860px;
+    width: 200px;            
+    height: 160px;           
+    border-radius: 20px;     
+}
+
+.grünesRechteck5 {
+    background-color: #289842;
+    position: fixed;
+    top: 360px; 
+    left: 1080px;
+    width: 300px;            
+    height: 160px;           
+    border-radius: 20px;     
+}
+
+.grünesRechteck6 {
+    background-color: #289842;
+    position: fixed;
+    top: 360px; 
+    left: 1080px;
+    width: 300px;            
+    height: 160px;           
+    border-radius: 20px;     
+}
+
+.h2 {
+    font-family: 'Ubuntu', sans-serif;
+    position: fixed;
+    width: 80px;             
+    height: 80px; 
+    top: 200px; 
+    left: 250px;
+    width: 400px;            
+    height: 150px;
+    margin: auto; 
+}
 .flex-container {
     display: flex;
             justify-content: space-around; /* Platz um die Elemente herum */

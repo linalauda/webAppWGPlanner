@@ -19,11 +19,15 @@ const Dashboard = () => {
         <img src={User} alt="User" class="user-image"/>
         </div>
         </header>
-          {/* Hier könnte beispielsweise ein Menü platziert werden */}
-        
-  
+          
         <main>
-        <   p>x</p>
+          <h class="h2">Hallo</h>
+       <div class="grünesRechteck1"></div>
+       <div class="grünesRechteck2"></div>
+       <div class="grünesRechteck3"></div>
+       <div class="grünesRechteck4"></div>
+       <div class="grünesRechteck5"></div>
+       <div class="grünesRechteck6"></div>
         </main>
   
         <footer>
