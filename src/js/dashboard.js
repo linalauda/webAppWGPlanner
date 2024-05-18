@@ -21,13 +21,20 @@ const Dashboard = () => {
         </header>
           
         <main>
-          <h class="h2">Hallo</h>
-       <div class="grünesRechteck1"></div>
-       <div class="grünesRechteck2"></div>
-       <div class="grünesRechteck3"></div>
-       <div class="grünesRechteck4"></div>
-       <div class="grünesRechteck5"></div>
-       <div class="grünesRechteck6"></div>
+          <div>
+          <h class="h2">Alles im grünen Bereich,</h>
+          </div>
+          
+      <div class= "flex-container">
+        <div class="grünesRechteckKalender">
+          <p class= "grünesRechteckKalenderText"> Kalender </p>
+        </div>
+        <div class="grünesRechteckToDos"></div>
+        <div class="grünesRechteckRangliste"></div>
+        <div class="grünesRechteckWGs"></div>
+        <div class="grünesRechteckEinstellungen"></div>
+        <div class="grünesRechteckEinkaufsliste"></div>
+      </div>
         </main>
   
         <footer>
