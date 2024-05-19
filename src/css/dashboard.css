@@ -33,6 +33,7 @@ background-color: #ffffff;
 .user-image:hover {
     opacity: 0.6;
 }
+
 .logout-image {
     position: fixed;
     bottom: 20px;
@@ -40,6 +41,10 @@ background-color: #ffffff;
     width: 2%; 
     height: auto;
   }
+
+.logout-image:hover {
+    opacity: 0.6;
+}
 
 .grauerKreis {
     position: fixed;
@@ -55,102 +60,235 @@ background-color: #ffffff;
     background-color: #1C6E2F;
 }
 
-.grünesRechteckKalender {
+.flex-item-Kalender {
     background-color: #1C6E2F;
-    position: fixed;
-    top: 360px; 
-    left: 380px;
-    right:auto;
-    bottom:auto;
-    width: 400px;            
-    height: 160px;           
-    border-radius: 20px;     
+    display: flex;
+    margin-top: auto;           
+    height: 100%;           
+    border-radius: 20px;   
+    align-items: center; 
+    flex: 1;
+    flex-direction: column; 
 }
-.grünesRechteckKalender:hover {
+.flex-item-Kalender:hover {
     background-color: #292F36;
+    flex: 1.5;
+    transition: flex 0.6s;
 }
 
-.grünesRechteckKalenderText {
+.calendar-image {
+    margin-top: 90px;
+    width: 40%; 
+    height: auto;
+    align-content: center;
+    order: 1;
+  }
+
+.flex-item-KalenderText {
 
     font-family: 'Ubuntu', sans-serif;
-    position: fixed;
+    padding-left: auto;
+    padding-bottom: auto;
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
-    top: 430px; 
-    left: 300px;
-    margin: auto;              
+    margin: auto; 
+    text-align: center;  
+    order: 2;          
 }
 
-.grünesRechteckToDos {
-    background-color: #3FBF5C;
-    position: fixed; 
-    top: 540px; 
-    left: 380px;
-    width: 400px;            
-    height: 160px;           
-    border-radius: 20px;     
+
+
+.flex-item-ToDos {
+    background-color: #218037;
+    display: flex;
+    margin-top: auto;          
+    height: 100%;           
+    border-radius: 20px;   
+    align-items: center; 
+    flex: 1;
+    flex-direction: column;  
 }
 
-.grünesRechteckToDos:hover {
+.flex-item-ToDos:hover {
     background-color: #292F36;
+    flex: 1.5;
+    transition: flex 0.6s;
 }
 
+.checklist-image {
+    margin-top: 90px;
+    width: 45%; 
+    height: auto;
+    align-content: center;
+    order: 1;
+  }
 
-.grünesRechteckRangliste {
-    background-color: #289842;
-    position: fixed; 
-    top: 360px; 
-    left: 800px;
-    width: 160px;            
-    height: 340px;           
-    border-radius: 20px;     
+.flex-item-ToDosText {
+
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: auto;
+    padding-bottom: auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: auto; 
+    text-align: center;
+    order: 2;            
 }
 
-.grünesRechteckRangliste:hover {
+.flex-item-Rangliste {
+    background-color: #258f3e;
+    display: flex;
+    margin-top: auto;          
+    height: 100%;           
+    border-radius: 20px;   
+    align-items: center; 
+    flex: 1; 
+    flex-direction: column;   
+}
+
+.flex-item-Rangliste:hover {
     background-color: #292F36;
+    flex: 1.5;
+    transition: flex 0.6s;
 }
 
-.grünesRechteckWGs {
-    background-color: #3FBF5C;
-    position: fixed;
-    top: 360px; 
-    left: 980px;
-    width: 200px;            
-    height: 160px;           
-    border-radius: 20px;     
+.ranking-image {
+    margin-top: 90px;
+    width: 45%; 
+    height: auto;
+    align-content: center;
+    order: 1;
+  }
+
+.flex-item-RanglisteText {
+
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: auto;
+    padding-top: auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: auto; 
+    text-align: center;
+    order:2;            
 }
 
-.grünesRechteckWGs:hover {
+.flex-item-WGs {
+    background-color: #2ba247;
+    display: flex;
+    margin-top: auto;           
+    height: 100%;           
+    border-radius: 20px;   
+    align-items: center; 
+    flex: 1;
+    flex-direction: column;     
+}
+
+.flex-item-WGs:hover {
     background-color: #292F36;
+    flex: 1.5;
+    transition: flex 0.6s;
 }
 
-.grünesRechteckEinstellungen {
-    background-color: #289842;
-    position: fixed;
-    top: 360px; 
-    left: 1200px;
-    width: 300px;            
-    height: 160px;           
-    border-radius: 20px;     
+.wgs-image {
+    margin-top: 90px;
+    width: 45%; 
+    height: auto;
+    align-content: center;
+    order: 1;
+  }
+
+.flex-item-WGsText {
+
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: auto;
+    padding-top: auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: auto; 
+    text-align: center; 
+    order:2;           
 }
 
-.grünesRechteckEinstellungen:hover {
+.flex-item-Einstellungen {
+    background-color: #31b550;
+    display: flex;
+    margin-top: auto;           
+    height: 100%;           
+    border-radius: 20px;   
+    align-items: center; 
+    flex: 1; 
+    flex-direction: column;       
+}
+
+
+.flex-item-Einstellungen:hover {
     background-color: #292F36;
+    flex: 1.5;
+    transition: flex 0.6s;
 }
 
-.grünesRechteckEinkaufsliste {
-    background-color: #1C6E2F;
-    position: fixed;
-    top: 540px; 
-    left: 980px;
-    width: 520px;            
-    height: 160px;           
-    border-radius: 20px;     
+.einstellungen-image {
+    margin-top: 90px;
+    width: 45%; 
+    height: auto;
+    align-content: center;
+    order: 1;
+  }
+
+.flex-item-EinstellungenText {
+
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: auto;
+    padding-top: auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: auto; 
+    text-align: center; 
+    order: 2;           
 }
 
-.grünesRechteckEinkaufsliste:hover {
+.flex-item-Einkaufsliste {
+    background-color: #38cb5a;
+    display: flex;
+    margin-top: auto;           
+    height: 100%;           
+    border-radius: 20px;   
+    align-items: center; 
+    flex: 1; 
+    flex-direction: column;      
+}
+
+.flex-item-Einkaufsliste:hover {
     background-color: #292F36;
+    flex: 1.5;
+    transition: flex 0.6s;
+}
+
+
+.einkaufsliste-image {
+    margin-top: 90px;
+    width: 45%; 
+    height: auto;
+    align-content: center;
+    order: 1;
+  }
+
+.flex-item-EinkaufslisteText {
+
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: auto;
+    padding-top: auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: auto; 
+    text-align: center;
+    order: 2;            
 }
 
 .h2 {
@@ -175,15 +313,24 @@ background-color: #ffffff;
     text-align: center;
     margin: auto; 
 }
-.flex-container {
+
+.outer-flex-container {
     display: flex;
-            flex-wrap: wrap; 
+    margin-top: 100px;
+    justify-content: center; /* Zentriert den Flexcontainer horizontal */
+    align-items: center;     /* Zentriert die Flex-Elemente vertikal */
+
+    height: 100vh;          /* Setzt die Höhe des Containers auf 100% der Ansichtshöhe */
+    width: 100vw;           /* Höhe auf 100% des übergeordneten Elements setzen */
+    background-color: rgb(255, 255, 255); /* Optional: Hintergrundfarbe */
 }
 
-.flex-item { 
-    flex: 1 1 200px; /* Flex-Wachstumsfaktor, Flex-Schrumpffaktor, Basisgröße */
-    margin: 10px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    text-align: center;
+.flex-container {
+    display: flex;
+    height: 40vh;         
+    width: 80vw;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);  
+    flex-direction: row; 
+    overflow: hidden;
 }
