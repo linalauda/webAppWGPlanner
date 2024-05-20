@@ -146,16 +146,6 @@ def delete_user(user_id: int):
     raise HTTPException(status_code=404, detail="User not found")
 
 
-##############################################################################
-
-
-#@app.get("/task")
-#async def get_tasks():
-#    task = Task(name="Küche aufräumen")
-#    return {"data": task}
-
-
-#######################################################
 """authenticate_user"""
 
 security = HTTPBasic()
@@ -203,12 +193,3 @@ def notfound():
 def notfound():
     return JSONResponse(content={"message": "Resource Not Found"}, status_code=404)
 
-############################
-#@app.get("/users/{id}", status_code=200)
-#def users(response: Response, id: int = Path()):
-#    if id < 1:
-#        response.status_code = 400
-#        return {"message": "Incorrect Data"}
-#    return  {"message": f"Id = {id}"}
-
-##############################

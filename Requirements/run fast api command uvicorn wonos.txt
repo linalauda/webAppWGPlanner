@@ -1,0 +1,61 @@
+C:\Users\admin\AppData\Roaming\Python\Python312\Scripts\pipenv.exe
+
+ C:\Users\admin\AppData\Roaming\Python\Python312\Scripts\pipenv.exe install uvicorn
+
+
+i need this one 
+
+C:\Users\admin\AppData\Roaming\Python\Python312\Scripts\pipenv.exe shell   
+
+and this for run server
+
+uvicorn.exe main:app --reload
+
+PS C:\Users\admin\Desktop\Uni\4 Semester\FALLSTUDIE SOFTWARE-ENGINEERING\WebAppWG> uvicorn.exe main:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\admin\\Desktop\\Uni\\4 Semester\\FALLSTUDIE SOFTWARE-ENGINEERING\\WebAppWG']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [2172] using StatReload
+
+
+with a openAI something wrong i should find a mistake 
+
+i can write more classes in python and than import them 
+
+
+
+Um Dokumentation für Python-Module, Funktionen, Klassen und Methoden mit pydoc zu erhalten, können Sie die folgenden Schritte ausführen:
+
+
+FastAPI
+GET GET (получение данных)
+POST POST (добавление данных)
+PUT PUT (изменение данных)
+DELETE DELETE (удаление данных)
+PATCH
+HEAD
+
+POST: to create data.
+GET: to read data.
+PUT: to update data.
+DELETE: to delete data.
+
+GET: Запрос GET используется для получения данных от сервера. Он не изменяет состояние сервера и предназначен для получения информации, например, получение веб-страницы или изображения.
+POST: Запрос POST используется для отправки данных на сервер для обработки. Он часто используется для отправки форм, загрузки файлов или выполнения других операций, которые изменяют состояние сервера.
+PUT: Запрос PUT используется для загрузки ресурса на сервер или обновления существующего ресурса. Он обычно используется для обновления данных.
+DELETE: Запрос DELETE используется для удаления ресурса на сервере.
+PATCH: Запрос PATCH используется для частичного обновления ресурса на сервере. Он отправляет данные, которые обновляют только часть ресурса.
+HEAD: Запрос HEAD аналогичен запросу GET, но сервер возвращает только заголовки ответа без тела ответа. Он часто используется для получения метаданных о ресурсе без загрузки всего содержимого.
+
+You can also use the other operations:
+
+@app.post()
+@app.put()
+@app.delete()
+And the more exotic ones:
+
+@app.options()
+@app.head()
+@app.patch()
+@app.trace()
+
+
