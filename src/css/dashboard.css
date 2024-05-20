@@ -12,7 +12,12 @@ background-color: #ffffff;
     left: 50px;
     width: 10%; 
     height: auto;
+    flex: 1;
   }
+
+.logo-image:hover {
+    opacity: 0.6;
+}
 
 .slogan {
     position: fixed;
@@ -22,38 +27,44 @@ background-color: #ffffff;
     font-weight: bold;
   }
 
-.user-image {
-    position: fixed;
-    top: 51px;
-    right: 51px;
-    width: 1.4%; 
-    height: auto;
-  }
-
-.user-image:hover {
-    opacity: 0.6;
-}
-
 .logout-image {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 2%; 
-    height: auto;
+    flex:0.8;
+    width: 2vw;
   }
 
 .logout-image:hover {
     opacity: 0.6;
 }
 
-.grauerKreis {
-    position: fixed;
-    width: 70px;             
-    height: 70px; 
-    top: 30px;
-    right: 30px;           
+.flexbox-grauerKreis {
+    display: flex;
+    margin-top: 40px;
+    margin-left: auto;
+    width: 4vw;             
+    height: 4vw;           
     background-color: #F1EBEB;  
-    border-radius: 50%;       
+    border-radius: 50%;  
+    flex: 0.3;
+    overflow: hidden; 
+    align-items: center;
+    justify-content: center;  
+}
+
+.flexbox-grauerKreis:hover {
+    opacity: 0.6;
+}
+
+.flex-item-user-image {
+    display: flex;
+    width: 2vw;
+    flex:0.3;
+  }
+
+.flex-item-user-image:hover {
+    opacity: 0.6;
 }
 
 .grauerKreis:hover {
@@ -89,7 +100,7 @@ background-color: #ffffff;
     font-family: 'Ubuntu', sans-serif;
     padding-left: auto;
     padding-bottom: auto;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #ffffff;
     margin: auto; 
@@ -129,7 +140,7 @@ background-color: #ffffff;
     font-family: 'Ubuntu', sans-serif;
     padding-left: auto;
     padding-bottom: auto;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #ffffff;
     margin: auto; 
@@ -167,7 +178,7 @@ background-color: #ffffff;
     font-family: 'Ubuntu', sans-serif;
     padding-left: auto;
     padding-top: auto;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #ffffff;
     margin: auto; 
@@ -205,7 +216,7 @@ background-color: #ffffff;
     font-family: 'Ubuntu', sans-serif;
     padding-left: auto;
     padding-top: auto;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #ffffff;
     margin: auto; 
@@ -244,7 +255,7 @@ background-color: #ffffff;
     font-family: 'Ubuntu', sans-serif;
     padding-left: auto;
     padding-top: auto;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #ffffff;
     margin: auto; 
@@ -283,7 +294,7 @@ background-color: #ffffff;
     font-family: 'Ubuntu', sans-serif;
     padding-left: auto;
     padding-top: auto;
-    font-size: 20px;
+    font-size: 1.5vw;
     font-weight: bold;
     color: #ffffff;
     margin: auto; 
@@ -294,14 +305,15 @@ background-color: #ffffff;
 .h2 {
     font-family: 'Ubuntu', sans-serif;
     position: fixed;
-    font-size: 50px ;
+    font-size: 3vw;
     font-weight: bold;
     color: #292F36;
     top: 200px; 
-    left: 250px;
+    margin-left: 450px;
     text-align: center;
     margin: auto; 
 }
+
 .h2-variable {
     font-family: 'Ubuntu', sans-serif;
     position: fixed;
@@ -316,17 +328,17 @@ background-color: #ffffff;
 
 .outer-flex-container {
     display: flex;
-    margin-top: 100px;
     justify-content: center; /* Zentriert den Flexcontainer horizontal */
     align-items: center;     /* Zentriert die Flex-Elemente vertikal */
 
-    height: 100vh;          /* Setzt die Höhe des Containers auf 100% der Ansichtshöhe */
+    height: 80vh;          /* Setzt die Höhe des Containers auf 100% der Ansichtshöhe */
     width: 100vw;           /* Höhe auf 100% des übergeordneten Elements setzen */
     background-color: rgb(255, 255, 255); /* Optional: Hintergrundfarbe */
 }
 
 .flex-container {
     display: flex;
+    margin-top: 150px;
     height: 40vh;         
     width: 80vw;
     justify-content: space-between;

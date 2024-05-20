@@ -12,19 +12,19 @@ import '../css/dashboard.css';
 
 const Dashboard = () => {
     return (
-      <div class="hintergrund">
-         <header>
+  <div class="hintergrund">
+         <div>
         <img src={Logo} alt="Logo" class="logo-image"/>
-        <div class="grauerKreis">
-        <img src={User} alt="User" class="user-image"/>
+        <div class="flex-container-user">
+          <div class="flexbox-grauerKreis">
+          <img src={User} alt="User" class="flex-item-user-image"/>
+          </div>
         </div>
-        </header>
+        </div>
           
         <main>
-          <div>
-          <h class="h2">Alles im grünen Bereich,</h>
-          </div>
-    <div class= "outer-flex-container">     
+    <div class= "outer-flex-container"> 
+      <h class="h2">Alles im grünen Bereich</h>    
       <div class= "flex-container">
         <div class="flex-item-Kalender">
           <p class= "flex-item-KalenderText"> Kalender </p>
