@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.hintergrund {
+    background-color: #ffffff;
+    }
+    
+.logo-image {
+        position: fixed;
+        top: 50px;
+        left: 50px;
+        width: 10%; 
+        height: auto;
+        flex: 1;
+      }
+    
+.logo-image:hover {
+        opacity: 0.6;
+    }
+
+.slogan {
+        position: fixed;
+        font-size:1.5vw;
+        bottom: 0px;
+        left: 50px;
+        font-weight: bold;
+      }
+    
+.h2 {
+        font-family: 'Ubuntu', sans-serif;
+        position: fixed;
+        font-size: 3vw;
+        font-weight: bold;
+        color: #292F36;
+        top: 200px; 
+        margin-left: 450px;
+        text-align: center;
+        margin: auto; 
+    }
+
+.outer-flex-container {
+        display: flex;
+        justify-content: center; /* Zentriert den Flexcontainer horizontal */
+        align-items: center;     /* Zentriert die Flex-Elemente vertikal */
+    
+        height: 80vh;          /* Setzt die Höhe des Containers auf 100% der Ansichtshöhe */
+        width: 100vw;           /* Höhe auf 100% des übergeordneten Elements setzen */
+        background-color: rgb(255, 255, 255); /* Optional: Hintergrundfarbe */
+    }
