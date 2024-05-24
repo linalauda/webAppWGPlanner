@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/registrierungs.css';
 import Logo from '../Logo.png';
 import User from '../user.png';
@@ -6,6 +7,7 @@ import Checked from '../checked.png';
 import ScrollableSelect from './scroll';
 
 function RegistrationPage() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     email: '',
     username: '',
@@ -112,7 +114,7 @@ function RegistrationPage() {
                 onChange={(value) => handleSelectChange('year', value)}
               />
             </div>
-            <button type="button" id="login" onClick={() => setShowDOBForm(false)}>Zurück</button>
+            <button type="button" id="zurück" onClick={() => setShowDOBForm(false)}>Zurück</button>
             <button type="submit" id="bestätigen">Weiter</button>
           </form>
         ) : showAdditionalForm ? (
@@ -132,7 +134,7 @@ function RegistrationPage() {
                 style={{ display: 'none' }}
               />
             </div>
-            <button type="button" id="login" onClick={() => { setShowDOBForm(true); setShowAdditionalForm(false); setShowThirdForm(false); }}>Zurück</button>
+            <button type="button" id="zurück" onClick={() => { setShowDOBForm(true); setShowAdditionalForm(false); setShowThirdForm(false); }}>Zurück</button>
             <button type="submit" id="bestätigen">Weiter</button>
           </form>
         ) : showThirdForm ? (
@@ -147,7 +149,7 @@ function RegistrationPage() {
                 placeholder="Schreibe etwas über dich..."
               />
             </div>
-            <button type="button" id="login" onClick={() => { setShowAdditionalForm(true); setShowThirdForm(false); }}>Zurück</button>
+            <button type="button" id="zurück" onClick={() => { setShowAdditionalForm(true); setShowThirdForm(false); }}>Zurück</button>
             <button type="submit" id="bestätigen">Weiter</button>
           </form>
         ) : showFinishedForm ? (
@@ -206,7 +208,7 @@ function RegistrationPage() {
                   placeholder='Passwort bestätigen'
                 />
               </div>
-              <button id="login">Zum Log-In</button>
+              <button type="button" id="login" onClick={() => navigate('/login')}>Zum Log-In</button>
               <button type="submit" id="bestätigen">Weiter</button>
             </form>
           </div>

@@ -9,7 +9,13 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
- 
+    if (name === 'email') {
+      setEmail(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -22,49 +28,50 @@ const Login = () => {
       setErrorMessage('Ungültige Eingabe');
     }
   };
-  
 
-    return (
-  <div class="hintergrund">
-     <div>
-        <img src={Logo} alt="Logo" class="logo-image"/> 
+  return (
+    <div className="hintergrund">
+      <div>
+        <img src={Logo} alt="Logo" className="logo-image" />
         <main>
-        <div class= "outer-flex-container"> 
-         <h class="h2">Willkommen zurück!</h> 
-         <div className="login-container">
-      <form onSubmit={handleLogin}>
-        <div className="form-group">
-          <label>E-Mail</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder='E-Mail-Adresse'
-          />
-        </div>
-        <div className="form-group">
-          <label>Passwort</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder='Passwort'
-          />
-        </div>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="submit" class="Login-Button">Login</button>
-      </form>
-    </div>  
-        </div> 
+          <div className="outer-flex-container">
+            <h2 className="h2">Willkommen zurück!</h2>
+            <div className="login-container">
+              <form onSubmit={handleLogin}>
+                <div className="form-group">
+                  <label>E-Mail</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleChange}
+                    required
+                    placeholder="E-Mail-Adresse"
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Passwort</label>
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handleChange}
+                    required
+                    placeholder="Passwort"
+                  />
+                </div>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <button type="submit" className="Login-Button">Login</button>
+              </form>
+            </div>
+          </div>
         </main>
         <footer>
-        <h1 class="slogan">"plan today, change tomorrow!"</h1>
+          <h1 className="slogan">"plan today, change tomorrow!"</h1>
         </footer>
       </div>
     </div>
-    );
-  };
-}
-  export default Login;
+  );
+};
+
+export default Login;

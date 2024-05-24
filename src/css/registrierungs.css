@@ -38,6 +38,18 @@
     color: white;
   }
 
+  #zurück{
+    padding: 8px;
+    margin: 5px 0;
+    margin-top: 15px;
+    margin-right: 60px;
+    border: none;
+    border-radius: 25px;
+    width: 100px;
+    font-size: 12px;
+    background-color: transparent;
+  }
+
   #login{
     padding: 8px;
     margin: 5px 0;
