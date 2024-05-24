@@ -46,38 +46,11 @@
         width: 100vw;           /* Höhe auf 100% des übergeordneten Elements setzen */
         background-color: rgb(255, 255, 255); /* Optional: Hintergrundfarbe */
     }
+      
 
-.login {
-        font-family: 'Ubuntu', sans-serif;
-        margin: auto; 
-        padding: 20px;
-        max-width:800px; 
-        color: #292f36;
-        text-align: center;
-      }
-
-      /* src/Login.css */
-.login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  .login-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
   
   .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   
   .form-group input {
@@ -92,17 +65,32 @@
     text-align: center;
   }
   
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+  input {
+    padding: 8px;
+    margin: 5px 0;
+    margin-top: 15px;
+    border: 1px solid #f1f1f1;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    width: 250px;
+  }
+  
+  input::placeholder {
+    color: #7c7c7c; 
+  }
+
+  .Login-Button {
+    padding: 8px;
+    margin: 5px 0;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    width: 100px;
+    font-size: 12px;
+    background-color: #1c6e2f;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
   }
-  
-  button:hover {
-    background-color: #0056b3;
+
+  .Login-Button:hover {
+    background-color: #292F36;
   }
-  

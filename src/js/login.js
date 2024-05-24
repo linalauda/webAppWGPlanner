@@ -7,17 +7,22 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+ 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     // Simuliere einen API-Aufruf
-    if (email === 'test@example.com' && password === 'password') {
-      alert('Login successful!');
+    if (email === 'test@example.com' && password === 'Passwort') {
+      alert('Login erfolgreich!');
+
       // Weiterleitung oder Speicherung des Tokens hier
     } else {
-      setErrorMessage('Invalid email or password');
+      setErrorMessage('Ungültige Eingabe');
     }
   };
+  
 
     return (
   <div class="hintergrund">
@@ -27,33 +32,33 @@ const Login = () => {
         <div class= "outer-flex-container"> 
          <h class="h2">Willkommen zurück!</h> 
          <div className="login-container">
-      <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div className="form-group">
-          <label>Email:</label>
+          <label>E-Mail</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder='E-Mail-Adresse'
           />
         </div>
         <div className="form-group">
-          <label>Password:</label>
+          <label>Passwort</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder='Passwort'
           />
         </div>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <button type="submit">Login</button>
+        <button type="submit" class="Login-Button">Login</button>
       </form>
     </div>  
         </div> 
         </main>
-  
         <footer>
         <h1 class="slogan">"plan today, change tomorrow!"</h1>
         </footer>
@@ -61,5 +66,5 @@ const Login = () => {
     </div>
     );
   };
-  
+}
   export default Login;
