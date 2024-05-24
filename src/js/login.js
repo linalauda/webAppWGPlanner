@@ -39,7 +39,6 @@ const Login = () => {
             <div className="login-container">
               <form onSubmit={handleLogin}>
                 <div className="form-group">
-                  <label>E-Mail</label>
                   <input
                     type="email"
                     name="email"
@@ -50,7 +49,6 @@ const Login = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Passwort</label>
                   <input
                     type="password"
                     name="password"

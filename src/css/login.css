@@ -39,12 +39,12 @@
 
 .outer-flex-container {
         display: flex;
-        justify-content: center; /* Zentriert den Flexcontainer horizontal */
-        align-items: center;     /* Zentriert die Flex-Elemente vertikal */
+        justify-content: center; 
+        align-items: center;    
     
-        height: 80vh;          /* Setzt die Höhe des Containers auf 100% der Ansichtshöhe */
-        width: 100vw;           /* Höhe auf 100% des übergeordneten Elements setzen */
-        background-color: rgb(255, 255, 255); /* Optional: Hintergrundfarbe */
+        height: 80vh;       
+        width: 100vw;          
+        background-color: rgb(255, 255, 255);
     }
       
 
@@ -93,4 +93,11 @@
 
   .Login-Button:hover {
     background-color: #292F36;
+  }
+
+  .login-container {
+    max-width: 400px;
+    margin-top: 200px;
+    padding: 20px;
+    border-radius: 4px;
   }
