@@ -6,42 +6,42 @@ import Checked from '../checked.png';
 import ScrollableSelect from './scroll';
 
 function RegistrationPage() {
-  const [user, setUser] = useState({
-    email: '',
-    username: '',
-    password: '',
-    confirmPassword: '',
-    day: 1,
-    month: 1,
-    year: new Date().getFullYear(),
-    profileImage: null,
-    bio: ''
-  });
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showDOBForm, setShowDOBForm] = useState(false);
   const [showAdditionalForm, setShowAdditionalForm] = useState(false);
   const [showThirdForm, setShowThirdForm] = useState(false);
   const [showFinishedForm, setShowFinishedForm] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [day, setDay] = useState(1);
+  const [month, setMonth] = useState(1);
+  const [year, setYear] = useState(new Date().getFullYear());
+  const [selectedImage, setSelectedImage] = useState(null);
   const fileInputRef = useRef(null);
+  const [thirdInputValue, setThirdInputValue] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user.password !== user.confirmPassword) {
-      setErrorMessage('Passwort und Passwort bestätigen stimmen nicht überein');
-      return;
-    }
-    setErrorMessage('');
+    console.log('Registrierungsdaten:', { email, username, password, confirmPassword });
+    setEmail('');
+    setUsername('');
+    setPassword('');
+    setConfirmPassword('');
     setShowDOBForm(true);
   };
 
   const handleDOBSubmit = (e) => {
     e.preventDefault();
+    console.log('Geburtsdatum:', { day, month, year });
     setShowDOBForm(false);
     setShowAdditionalForm(true);
   };
 
   const handleAdditionalFormSubmit = (e) => {
     e.preventDefault();
+    console.log('Additional form submitted');
+    console.log('Selected Image:', selectedImage);
     setShowAdditionalForm(false);
     setShowThirdForm(true);
   };
@@ -51,7 +51,7 @@ function RegistrationPage() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setUser(prevUser => ({ ...prevUser, profileImage: reader.result }));
+        setSelectedImage(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -63,18 +63,10 @@ function RegistrationPage() {
 
   const handleThirdFormSubmit = (e) => {
     e.preventDefault();
+    console.log('Third form submitted');
+    console.log('Third input value:', thirdInputValue);
     setShowThirdForm(false);
     setShowFinishedForm(true);
-    console.log('User data:', user);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser(prevUser => ({ ...prevUser, [name]: value }));
-  };
-
-  const handleSelectChange = (name, value) => {
-    setUser(prevUser => ({ ...prevUser, [name]: value }));
   };
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
@@ -97,19 +89,19 @@ function RegistrationPage() {
             <p>Wähle dein Geburtsdatum aus</p>
             <div id="gebDatum">
               <ScrollableSelect
-                value={user.day}
+                value={day}
                 options={days}
-                onChange={(value) => handleSelectChange('day', value)}
+                onChange={setDay}
               />
               <ScrollableSelect
-                value={user.month}
+                value={month}
                 options={months}
-                onChange={(value) => handleSelectChange('month', value)}
+                onChange={setMonth}
               />
               <ScrollableSelect
-                value={user.year}
+                value={year}
                 options={years}
-                onChange={(value) => handleSelectChange('year', value)}
+                onChange={setYear}
               />
             </div>
             <button type="button" id="login" onClick={() => setShowDOBForm(false)}>Zurück</button>
@@ -119,7 +111,7 @@ function RegistrationPage() {
           <form onSubmit={handleAdditionalFormSubmit} className="profilpicture-form">
             <div className="profile-image-container">
               <img
-                src={user.profileImage || User}
+                src={selectedImage || User } 
                 alt="Profile"
                 className="profile-image"
                 onClick={handleImageClick}
@@ -132,46 +124,36 @@ function RegistrationPage() {
                 style={{ display: 'none' }}
               />
             </div>
-            <button type="button" id="login" onClick={() => { setShowDOBForm(true); setShowAdditionalForm(false); setShowThirdForm(false); }}>Zurück</button>
+            <button type="button" id="login" onClick={() => { setShowDOBForm(true); setShowAdditionalForm(false); setShowThirdForm(false);}}>Zurück</button>
             <button type="submit" id="bestätigen">Weiter</button>
           </form>
         ) : showThirdForm ? (
           <form onSubmit={handleThirdFormSubmit} className="third-form">
             <div>
               <input
-                type="text"
-                name="bio"
-                value={user.bio}
-                onChange={handleChange}
-                className="Bio"
-                placeholder="Schreibe etwas über dich..."
+              type="text"
+              value={thirdInputValue}
+              onChange={(e) => setThirdInputValue(e.target.value)}
+              className="Bio"
+              placeholder="Schreibe etwas über dich..."
               />
             </div>
-            <button type="button" id="login" onClick={() => { setShowAdditionalForm(true); setShowThirdForm(false); }}>Zurück</button>
+            <button type="button" id="login" onClick={() => setShowAdditionalForm(true) && setShowThirdForm(false)}>Zurück</button>
             <button type="submit" id="bestätigen">Weiter</button>
           </form>
         ) : showFinishedForm ? (
-          <div className="finished-form">
+          <div>
             <img src={Checked} alt="Checked" className="checked"/>
-            <div className="user-info">
-              <h3>Registrierungsdaten</h3>
-              <p><strong>Email:</strong> {user.email}</p>
-              <p><strong>Username:</strong> {user.username}</p>
-              <p><strong>Geburtsdatum:</strong> {`${user.day}.${user.month}.${user.year}`}</p>
-              {user.profileImage && <img src={user.profileImage} alt="Profile" className="profile-image"/>}
-              <p><strong>Über dich:</strong> {user.bio}</p>
-            </div>
           </div>
         ) : (
           <div>
             <form onSubmit={handleSubmit}>
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
               <div>
                 <input
                   type="email"
-                  name="email"
-                  value={user.email}
-                  onChange={handleChange}
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder='E-Mail-Adresse'
                 />
@@ -179,9 +161,9 @@ function RegistrationPage() {
               <div>
                 <input
                   type="text"
-                  name="username"
-                  value={user.username}
-                  onChange={handleChange}
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   required
                   placeholder='Nutzername'
                 />
@@ -189,9 +171,9 @@ function RegistrationPage() {
               <div>
                 <input
                   type="password"
-                  name="password"
-                  value={user.password}
-                  onChange={handleChange}
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder='Passwort'
                 />
@@ -199,9 +181,9 @@ function RegistrationPage() {
               <div>
                 <input
                   type="password"
-                  name="confirmPassword"
-                  value={user.confirmPassword}
-                  onChange={handleChange}
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                   placeholder='Passwort bestätigen'
                 />

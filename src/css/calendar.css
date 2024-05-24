@@ -118,20 +118,13 @@
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-<<<<<<< Updated upstream
   width: 700px;
   height: 500px;
-=======
-  width: 500px;
->>>>>>> Stashed changes
 }
 
 .modal-content {
   text-align: left;
-<<<<<<< Updated upstream
   font-size: 20px;;
-=======
->>>>>>> Stashed changes
 }
 
 .close {
@@ -145,7 +138,6 @@
 .tip-button{
   background-color: #1c6e2f;
   border-radius: 25px;
-<<<<<<< Updated upstream
   width: 60px;
   height: 30px;
   border:none;
@@ -153,14 +145,6 @@
 
 #tip-image {
   width: 50%; 
-=======
-  width: 40px;
-  height: 40px;
-}
-
-#tip-image {
-  width: 100%; 
->>>>>>> Stashed changes
 }
 
 .edit-button{
