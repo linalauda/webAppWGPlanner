@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../css/calendar.css';
 import Logo from '../Logo.png';
 import Tip from '../Idee.png';
+<<<<<<< Updated upstream
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> Stashed changes
 import Aufgaben from './Aufgaben';
 import { useTasks } from './taskUtils'; 
 
@@ -145,6 +149,7 @@ function Calendar() {
           <div className="modal">
             <div className="modal-content">
               <span className="close" onClick={() => setSelectedDay(null)}>&times;</span>
+<<<<<<< Updated upstream
               <h3 style={{fontWeight: 'bold', fontSize: '40px'}}>{selectedDay}</h3>
               <p style={{fontWeight: 'bold'}}>Anstehende Aufgaben:</p>
               <table> {/* Tabelle für Aufgaben und Buttons */}
@@ -176,6 +181,31 @@ function Calendar() {
                   ))}
                 </tbody>
               </table>
+=======
+              <h3 style={{ fontWeight: 'bold', fontSize: 100 }}>{selectedDay}</h3>
+              <p style={{fontWeight: 'bold'}}>Anstehende Aufgaben:</p>
+              <ul id= "task-list">
+                {selectedDayTasks.map((task, index) => (
+                  <li key={index}>
+                    <span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}
+                    <button className="tip-button" onClick={() => showTaskTip(task.id)}><img src={Tip} alt="Tip" id="tip-image"/></button>
+                    <button className="edit-button">Ändern</button>
+                    <button className="delete-button">Löschen</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
+      {selectedTaskTip && (
+        <div className="modal-container">
+          <div className="modal">
+            <div className="modal-content">
+              <span className="close" onClick={() => setSelectedTaskTip(null)}>&times;</span>
+              <h3>Tipp für die Aufgabe</h3>
+              <p>{selectedTaskTip}</p>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
