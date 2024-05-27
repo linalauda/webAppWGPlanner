@@ -18,12 +18,12 @@ const BurgerMenu = () => {
         </button>
         <nav className={`menu-items ${isOpen ? 'open' : ''}`}>
           <ul>
-                    <li>Kalender</li>
-                    <li>To Do's</li>
-                    <li>Einkaufsliste</li>
-                    <li>Rangliste</li>
-                    <li>WG's</li>
-                    <li>Einstellungen</li>
+                    <li class= "Kalender-Text">Kalender</li>
+                    <li class= "ToDos-Text">To Do's</li>
+                    <li class= "Einkaufsliste-Text">Einkaufsliste</li>
+                    <li class= "Rangliste-Text">Rangliste</li>
+                    <li class= "WGs-Text">WG's</li>
+                    <li class= "Einstellungen-Text">Einstellungen</li>
           </ul>
         </nav>
       </div>

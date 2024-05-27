@@ -2,8 +2,8 @@
 
 .burger-menu {
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 60px;
+  right: 60px;
 }
 
 .burger-button {
@@ -14,14 +14,14 @@
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
-  height: 20px;
+  height: 30px;
   padding: 0;
 }
 
 .bar {
   width: 100%;
-  height: 3px;
-  background-color: #333;
+  height: 5px;
+  background-color: #292F36;
   transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -34,16 +34,15 @@
 }
 
 .burger-button.open .bar:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-15.5px) rotate(-45deg);
 }
 
 .menu-items {
   position: absolute;
-  top: 100%;
+  margin-top: 50px;
   right: 0;
   width: 200px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #707070;
   border-radius: 5px;
   overflow: hidden;
   transition: max-height 0.3s;
@@ -55,7 +54,7 @@
 }
 
 .menu-items ul {
-  margin: 0;
+  margin: 15px;
   padding: 0;
   list-style-type: none;
 }
@@ -74,4 +73,58 @@
     top: 10px;
     right: 10px;
   }
+}
+
+.Kalender-Text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.Kalender-Text:hover {
+  opacity: 0.6;
+}
+
+.ToDos-Text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.ToDos-Text:hover {
+  opacity: 0.6;
+}
+
+.Einkaufsliste-Text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.Einkaufsliste-Text:hover {
+  opacity: 0.6;
+}
+
+.Rangliste-Text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.Rangliste-Text:hover {
+  opacity: 0.6;
+}
+
+.WGs-Text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.WGs-Text:hover {
+  opacity: 0.6;
+}
+
+.Einstellungen-Text {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.Einstellungen-Text:hover {
+  opacity: 0.6;
 }

@@ -67,10 +67,6 @@ background-color: #ffffff;
     opacity: 0.6;
 }
 
-.grauerKreis:hover {
-    background-color: #1C6E2F;
-}
-
 .flex-item-Kalender {
     background-color: #1C6E2F;
     display: flex;
