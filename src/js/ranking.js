@@ -35,7 +35,7 @@ function Timer() {
   return (
     <div class="outer-flex-container-clock">
     <img src={Uhr} alt="Uhr" className="clock-image" />
-    <div className="flex-container">
+    <div className="flex-container2">
     <div className="timer-container">
       <input
         type="datetime-local"
@@ -87,15 +87,15 @@ const Ranking = () => {
     <div className="hintergrund">
       <div>
         <img src={Logo} alt="Logo" className="logo-image" />
-        <div className="flex-container-user">
-          <div className="flexbox-grauerKreis">
+        <div className="flex-container-user2">
+          <div className="flexbox-grauerKreis2">
             <img src={User} alt="User" className="flex-item-user-image" />
           </div>
         </div>
       </div>
 
       <main>
-        <div className="outer-flex-container">
+        <div className="outer-flex-container2">
           <h2 className="h2">Schau wer das Rennen macht!</h2>
           <div><Timer /></div>
           <div className="user-ranking">
