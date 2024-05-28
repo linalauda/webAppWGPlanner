@@ -5,6 +5,7 @@ import Logo from '../Logo.png';
 import User from '../user.png';
 import Checked from '../checked.png';
 import ScrollableSelect from './scroll';
+import axios from 'axios';
 
 function RegistrationPage() {
   const navigate = useNavigate();
@@ -79,6 +80,30 @@ function RegistrationPage() {
     setUser(prevUser => ({ ...prevUser, [name]: value }));
   };
 
+  const testData = {
+    email: "lina@gmail.com",
+    username: "lina",
+    password: "pass",
+    birthdate: "2000-12-09",
+  }
+  
+  const createUser = async (user) => {
+    const data = {
+      email: user.email, 
+      username: user.username,
+      password: user.password,
+      birthdate: `${user.year}-${user.month < 10 ? `0${user.month}`: user.month}-${user.day < 10 ? `0${user.day}`: user.day}`,
+      image: user.profileImage
+    }
+    console.log(data);
+    try {
+      const response = await axios.post('http://localhost:8000/users/post', data);
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
+  }
+
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
   const currentYear = new Date().getFullYear();
@@ -150,7 +175,7 @@ function RegistrationPage() {
               />
             </div>
             <button type="button" id="zurück" onClick={() => { setShowAdditionalForm(true); setShowThirdForm(false); }}>Zurück</button>
-            <button type="submit" id="bestätigen">Weiter</button>
+            <button type="submit" id="bestätigen_to_db" onClick={() => createUser(user)}>Weiter</button>
           </form>
         ) : showFinishedForm ? (
           <div className="finished-form">
@@ -169,47 +194,19 @@ function RegistrationPage() {
             <form onSubmit={handleSubmit}>
               {errorMessage && <p className="error-message">{errorMessage}</p>}
               <div>
-                <input
-                  type="email"
-                  name="email"
-                  value={user.email}
-                  onChange={handleChange}
-                  required
-                  placeholder='E-Mail-Adresse'
-                />
+                <input type="email" id="email" name="email" value={user.email} onChange={handleChange} required placeholder='E-Mail-Adresse'/>
               </div>
               <div>
-                <input
-                  type="text"
-                  name="username"
-                  value={user.username}
-                  onChange={handleChange}
-                  required
-                  placeholder='Nutzername'
-                />
+                <input type="text" id="username" name="username" value={user.username} onChange={handleChange} required placeholder='Nutzername'/>
               </div>
               <div>
-                <input
-                  type="password"
-                  name="password"
-                  value={user.password}
-                  onChange={handleChange}
-                  required
-                  placeholder='Passwort'
-                />
+                <input type="password" id="password" name="password" value={user.password} onChange={handleChange} required placeholder='Passwort'/>
               </div>
               <div>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  value={user.confirmPassword}
-                  onChange={handleChange}
-                  required
-                  placeholder='Passwort bestätigen'
-                />
+                <input type="password" id="confirmPassword" name="confirmPassword" value={user.confirmPassword} onChange={handleChange} required placeholder='Passwort bestätigen' />
               </div>
               <button type="button" id="login" onClick={() => navigate('/login')}>Zum Log-In</button>
-              <button type="submit" id="bestätigen">Weiter</button>
+              <button type="submit" id="bestätigen_1">Weiter</button>
             </form>
           </div>
         )}
