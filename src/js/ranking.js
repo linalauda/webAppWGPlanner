@@ -82,8 +82,8 @@ function Timer({ onStart, onStop }) {
           min={getCurrentDateTime()}
         />
         <div className="timer-buttons">
-          <button onClick={startTimer}>Start</button>
-          <button onClick={stopTimer}>Stop</button>
+          <button class="button2" onClick={startTimer}>Start</button>
+          <button class="button2" onClick={stopTimer}>Stop</button>
         </div>
         {remainingTime !== null && (
           <div className="timer-display">

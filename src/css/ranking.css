@@ -188,7 +188,7 @@
   margin-top: 50px;
 }
 
-button {
+.button2 {
   padding: 10px 20px;
   background-color: #1c6e2f;
   color: white;
@@ -199,6 +199,6 @@ button {
   margin-left: 10px;
 }
 
-button:hover {
+.button2:hover {
   background-color: #292F36;
 }
