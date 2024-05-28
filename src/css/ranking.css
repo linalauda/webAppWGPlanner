@@ -28,10 +28,10 @@
 .h2 {
         font-family: 'Ubuntu', sans-serif;
         position: fixed;
-        font-size: 3vw;
+        font-size: 2.5vw;
         font-weight: bold;
         color: #292F36;
-        top: 200px; 
+        top: 150px; 
         margin-left: 450px;
         text-align: center;
         margin: auto; 
@@ -91,7 +91,7 @@
 
 .user-ranking {
   width: 400px;
-  margin-top: -50px;
+  margin-top: -200px;
   padding: 20px;
   border-radius: 5px;
 }
@@ -135,18 +135,16 @@
 
 .flex-container-timer {
   display: flex;
-  margin-top: -50px;
+  margin-top: -150px;
   flex-direction: row;
   flex: 1;
   width:30vw;
   overflow: hidden;
   background-color: #ffffff;
- align-items: center;
 }
 
-
-
 .timer-container {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,4 +182,23 @@
   width: 5vw;
 }
 
+.h3 {
+  font-size: 1vw;
+  margin-left: 0px;
+  margin-top: 50px;
+}
 
+button {
+  padding: 10px 20px;
+  background-color: #1c6e2f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #292F36;
+}

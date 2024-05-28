@@ -4,7 +4,7 @@ import BurgerMenu from './burgermenu';
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
-  const excludedPaths = []; // Pfade, auf denen das Menü nicht angezeigt wird
+  const excludedPaths = ['/login', '/registration', '/']; // Pfade, auf denen das Menü nicht angezeigt wird
 
   const shouldShowMenu = !excludedPaths.includes(pathname);
 

@@ -322,7 +322,7 @@ background-color: #ffffff;
 
 .flex-container {
     display: flex;
-    margin-top: 150px;
+    margin-top: 50px;
     height: 40vh;         
     width: 80vw;
     justify-content: space-between;
