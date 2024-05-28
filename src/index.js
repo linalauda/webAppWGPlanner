@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Registration from './js/registrierung';
@@ -7,16 +7,9 @@ import Calendar from './js/Calendar';
 import LogIn from './js/login';
 import ToDo from './js/ToDo';
 import Liste from './js/liste';
-import FetchData from './FetchData'; // Neue Komponente importieren
 import './css/index.css';
 
 function App() {
-  const [selectedItemId, setSelectedItemId] = useState(null);
-
-  const handleItemClick = (itemId) => {
-    setSelectedItemId(itemId);
-  };
-
   return (
     <BrowserRouter>
       <Routes>
@@ -26,7 +19,6 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/todo" element={<ToDo />} />
         <Route path="/liste" element={<Liste />} />
-        <Route path="/fetch-data" element={<FetchData />} /> {/* Neue Route hinzufügen */}
       </Routes>
     </BrowserRouter>
   );
