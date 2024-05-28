@@ -61,9 +61,10 @@
 }
 
 .flexbox-grauerKreis2 {
-  position: fixed;
-  margin-top: 35px;
-  right: 150px;
+  display: flex;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: 150px;
   width: 4vw;             
   height: 4vw;           
   background-color: #F1EBEB;  
@@ -90,7 +91,7 @@
 
 .user-ranking {
   width: 400px;
-  margin-top: 200px;
+  margin-top: -50px;
   padding: 20px;
   border-radius: 5px;
 }
@@ -112,49 +113,38 @@
 
 .rank {
   width: 30px;
-  font-size: 30px;
-  text-align: center;
+  font-size: 1.5vw;
   font-weight: bold;
   color: #1C6E2F;
 }
 
 .username {
   flex: 1;
-  margin-left: 30px;
+  font-size: 1.2vw;
+  margin-left: 1vw;
   color: #292F36;
-  font-size: 20px;
 }
 
 .points {
-  font-size: 14px;
+  font-size: 1.2vw;
   color: #292F36;
-  font-size: 20px;
 }
 
 /*Timer*/
 
 
-.outer-flex-container-clock {
+.flex-container-timer {
   display: flex;
-  margin-top: 100px;
+  margin-top: -50px;
   flex-direction: row;
   flex: 1;
-  width:40vw;
+  width:30vw;
   overflow: hidden;
-  background-color: #c52222;
-  overflow: auto;
+  background-color: #ffffff;
+ align-items: center;
+}
 
-}
-.flex-container2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  width: 20vw;
-  height: 12vh;
-  overflow: hidden;
-  background-color: #1eb52b;
-}
+
 
 .timer-container {
   display: flex;
@@ -183,15 +173,15 @@
 }
 
 .timer-display {
+  display: flex;
   font-size: 24px;
-  margin-top: 10px;
-  margin-right: 100px;
+  flex: 1;
 }
 
 .clock-image {
-  display:flex;
-  flex:0.5;
-  width: 1vw;
+  position: fixed;
+  flex: 1;
+  width: 5vw;
 }
 
 

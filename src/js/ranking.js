@@ -33,9 +33,8 @@ function Timer() {
   };
 
   return (
-    <div class="outer-flex-container-clock">
+    <div class="flex-container-timer">
     <img src={Uhr} alt="Uhr" className="clock-image" />
-    <div className="flex-container2">
     <div className="timer-container">
       <input
         type="datetime-local"
@@ -53,7 +52,6 @@ function Timer() {
           <p>{new Date(currentTime).toISOString().substr(11, 8)}</p>
         </div>
       )}
-    </div>
     </div>
     </div>
   );
