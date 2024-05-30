@@ -8,7 +8,6 @@ import Home from '../home_weiß.png';
 import Settings from '../settings.png';
 import User from '../user.png';
 import Logout from '../log-out.png';
-import axios from 'axios';
 import '../css/dashboard.css';
 
 const Dashboard = () => {
