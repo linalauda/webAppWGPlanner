@@ -40,7 +40,7 @@ const Dashboard = () => {
         <img src={Ranking} alt="Ranking" class="ranking-image"/>
         </div>
         <div class="flex-item-WGs">
-        <p class= "flex-item-WGsText"> WG's </p>
+        <p class= "flex-item-WGsText"> WG </p>
         <img src={Home} alt="Home" class="wgs-image"/>
         </div>
         <div class="flex-item-Einstellungen">

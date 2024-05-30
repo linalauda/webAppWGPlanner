@@ -1,10 +1,8 @@
-// src/RankingComponent.js
 import React, { useState, useEffect } from 'react';
 import Logo from '../Logo.png';
 import Logout from '../log-out.png';
 import User from '../user.png';
 import Uhr from '../clock.png';
-import { useBurgerMenu } from '../components/burgermenu';
 import '../css/ranking.css';
 import '../components/burgermenu.css';
 
@@ -12,6 +10,7 @@ function Timer({ onStart, onStop }) {
   const [startTime, setStartTime] = useState('');
   const [remainingTime, setRemainingTime] = useState(null);
   const [timerId, setTimerId] = useState(null);
+  const [note, setNote] = useState(localStorage.getItem('userNote') || '');
 
   const getCurrentDateTime = () => {
     const now = new Date();
@@ -27,7 +26,7 @@ function Timer({ onStart, onStop }) {
   const startTimer = () => {
     const start = new Date(startTime).getTime();
     const now = new Date().getTime();
-    
+
     if (start <= now) {
       alert('Bitte wählen Sie eine Zeit in der Zukunft.');
       return;
@@ -61,6 +60,14 @@ function Timer({ onStart, onStop }) {
     setStartTime(event.target.value);
   };
 
+  const handleNoteChange = (event) => {
+    setNote(event.target.value);
+  };
+
+  const saveNote = () => {
+    localStorage.setItem('userNote', note);
+  };
+
   const formatTime = (milliseconds) => {
     if (isNaN(milliseconds)) return '00:00:00';
     const totalSeconds = Math.floor(milliseconds / 1000);
@@ -82,14 +89,23 @@ function Timer({ onStart, onStop }) {
           min={getCurrentDateTime()}
         />
         <div className="timer-buttons">
-          <button class="button2" onClick={startTimer}>Start</button>
-          <button class="button2" onClick={stopTimer}>Stop</button>
+          <button className="button2" onClick={startTimer}>Start</button>
+          <button className="button2" onClick={stopTimer}>Stop</button>
         </div>
         {remainingTime !== null && (
           <div className="timer-display">
             <h3 className="h3">Eure Frist: <span>{formatTime(remainingTime)}</span></h3>
           </div>
         )}
+        <div className="note-section">
+          <textarea
+            className="note-textarea"
+            placeholder="Trage den Gewinn ein"
+            value={note}
+            onChange={handleNoteChange}
+          />
+          <button className="save-button" onClick={saveNote}>Speichern</button>
+        </div>
       </div>
     </div>
   );
