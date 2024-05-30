@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { useTasks } from './taskUtils'; // Stellen Sie sicher, dass der Importpfad korrekt ist
+import { useTasks } from './taskUtils'; // Ensure the import path is correct
 
 function TaskList() {
-  const [currentUser, setCurrentUser] = useState('nutzer1'); // Definieren Sie den aktuellen Benutzer in der TaskList-Komponente
-  const { tasks } = useTasks();
+  const [currentUser, setCurrentUser] = useState('nutzer1'); // Define the current user in the TaskList component
+  const { tasks, completeTask } = useTasks(); // Include completeTask function
 
   const userTasks = tasks.filter(task => task.person === currentUser);
+
+  const handleCompleteTask = (taskId) => {
+    completeTask(taskId); // Mark the task as completed
+  };
 
   return (
     <div>
@@ -19,6 +23,13 @@ function TaskList() {
               <p>Points: {taskWrapper.task.points}</p>
               <p>Date: {taskWrapper.date}</p>
               <p>Tip: {taskWrapper.task.tip}</p>
+              <label>
+                <input 
+                  type="checkbox" 
+                  onChange={() => handleCompleteTask(taskWrapper.task.id)} 
+                />
+                Complete
+              </label>
             </li>
           ))}
         </ul>

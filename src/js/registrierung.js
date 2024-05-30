@@ -175,7 +175,7 @@ function RegistrationPage() {
               />
             </div>
             <button type="button" id="zurück" onClick={() => { setShowAdditionalForm(true); setShowThirdForm(false); }}>Zurück</button>
-            <button type="submit" id="bestätigen_to_db" onClick={() => createUser(user)}>Weiter</button>
+            <button type="submit" id="bestätigen" onClick={() => createUser(user)}>Weiter</button>
           </form>
         ) : showFinishedForm ? (
           <div className="finished-form">
@@ -206,7 +206,7 @@ function RegistrationPage() {
                 <input type="password" id="confirmPassword" name="confirmPassword" value={user.confirmPassword} onChange={handleChange} required placeholder='Passwort bestätigen' />
               </div>
               <button type="button" id="login" onClick={() => navigate('/login')}>Zum Log-In</button>
-              <button type="submit" id="bestätigen_1">Weiter</button>
+              <button type="submit" id="bestätigen">Weiter</button>
             </form>
           </div>
         )}
