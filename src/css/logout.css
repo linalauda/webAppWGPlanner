@@ -1,0 +1,72 @@
+.hintergrund {
+  background-color: #ffffff;
+}
+
+.logo-image {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  width: 10%;
+  height: auto;
+  flex: 1;
+}
+
+.logo-image:hover {
+  opacity: 0.6;
+}
+
+.slogan {
+  position: fixed;
+  font-size: 1.5vw;
+  bottom: 0px;
+  left: 50px;
+  font-weight: bold;
+}
+
+.h2 {
+  font-family: 'Ubuntu', sans-serif;
+  position: fixed;
+  font-size: 3vw;
+  font-weight: bold;
+  color: #292F36;
+  top: 200px;
+  margin-left: 450px;
+  text-align: center;
+  margin: auto;
+}
+
+.outer-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  flex-direction: row;
+}
+
+.login-button2 {
+  background-color: #1c6e2f;
+  margin-top: 100px;
+  width: 150px;
+  border: none;
+
+}
+
+.login-button2:hover {
+  background-color: #292F36;
+}
+
+.logout-container {
+  width: 800px;
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.TextLogout {
+  font-size: 1vw;
+  color: #292F36;
+}

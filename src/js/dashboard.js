@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import Calendar from '../calendar.png';
 import Checklist from '../checklist.png';
@@ -57,7 +58,9 @@ const Dashboard = () => {
   
         <footer>
         <h1 class="slogan">"plan today, change tomorrow!"</h1>
+        <Link to="/logout">
         <img src={Logout} alt="Logout" class="logout-image"/>
+        </Link>
         </footer>
       </div>
     );

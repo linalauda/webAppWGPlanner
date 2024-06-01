@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import axios from 'axios';
 import '../css/login.css';
@@ -28,6 +29,11 @@ const Login = () => {
     } else {
       setErrorMessage('Ungültige Eingabe');
     }
+  };
+
+  const handleRegister = () => {
+    // Registrierungshandling hier
+    alert('Registrierungshandling hier');
   };
 
   return (
@@ -60,7 +66,10 @@ const Login = () => {
                   />
                 </div>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <button type="submit" className="Login-Button">Login</button>
+                <div className="button-group">
+                  <button type="submit" className="login-button">Login</button>
+                  <button onClick={handleRegister} className="register-button">Registrieren</button>
+                </div>
               </form>
             </div>
           </div>
