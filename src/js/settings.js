@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import User from '../user.png';
 import Logo from '../Logo.png';
+import Logout from '../log-out.png';
 import '../css/settings.css';
 
 const Settings = () => {
@@ -53,6 +55,11 @@ const Settings = () => {
     <div className="hintergrund">
       <div>
         <img src={Logo} alt="Logo" className="logo-image" />
+        <div className="flex-container-user2">
+          <div className="flexbox-grauerKreis2">
+            <img src={User} alt="User" className="flex-item-user-image" />
+          </div>
+        </div>
         <main>
           <div className="outer-flex-container">
             <h2 className="h2">Alles eine Frage der Einstellung!</h2>
@@ -66,6 +73,9 @@ const Settings = () => {
         </main>
         <footer>
           <h1 className="slogan">"plan today, change tomorrow!"</h1>
+          <Link to="/logout">
+            <img src={Logout} alt="Logout" className="logout-image"/>
+          </Link>
         </footer>
       </div>
     </div>

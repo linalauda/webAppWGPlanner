@@ -48,7 +48,7 @@
 .notification-toggle-container {
   display: flex;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 10px;
   background-color: rgb(255, 255, 255);
   text-align: center;
 }
@@ -91,4 +91,45 @@
 .toggle-switch .toggle-knob.enabled {
   left: 30px;
   background-color: #1C6E2F;
+}
+
+.logout-image {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  flex:0.8;
+  width: 2vw;
+}
+
+.logout-image:hover {
+  opacity: 0.6;
+}
+
+.flexbox-grauerKreis2 {
+  display: flex;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: 150px;
+  width: 4vw;             
+  height: 4vw;           
+  background-color: #F1EBEB;  
+  border-radius: 50%;  
+  flex: 0.3;
+  overflow: hidden; 
+  align-items: center;
+  justify-content: center;  
+}
+
+.flexbox-grauerKreis2:hover {
+  opacity: 0.6;
+}
+
+.flex-item-user-image2 {
+  display: flex;
+  width: 2vw;
+  flex:0.3;
+}
+
+.flex-item-user-image2:hover {
+  opacity: 0.6;
 }
