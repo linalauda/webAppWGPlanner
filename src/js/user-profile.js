@@ -1,75 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
-import '../css/login.css';
+import EditProfile from './EditProfile';
+import Logout from '../log-out.png';
+import '../css/wg-profile.css';
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+const WGProfile = () => {
+  const [userData, setUserData] = useState({
+    profilePicture: '',
+    username: ''
+  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === 'email') {
-      setEmail(value);
-    } else if (name === 'password') {
-      setPassword(value);
-    }
-  };
+  useEffect(() => {
+    // Funktion zum Abrufen der Nutzerdaten
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get('/api/user'); // API-Endpunkt anpassen
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Fehler beim Abrufen der Nutzerdaten', error);
+      }
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+    };
 
-    // Simuliere einen API-Aufruf
-    if (email === 'test@example.com' && password === 'Passwort') {
-      alert('Login erfolgreich!');
-
-      // Weiterleitung oder Speicherung des Tokens hier
-    } else {
-      setErrorMessage('Ungültige Eingabe');
-    }
-  };
+    fetchUserData();
+  }, []);
 
   return (
     <div className="hintergrund">
       <div>
+        <Link to="/dashboard">
         <img src={Logo} alt="Logo" className="logo-image" />
+        </Link>
         <main>
           <div className="outer-flex-container">
-            <h2 className="h2">Willkommen zurück!</h2>
-            <div className="login-container">
-              <form onSubmit={handleLogin}>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    required
-                    placeholder="E-Mail-Adresse"
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="password"
-                    name="password"
-                    value={password}
-                    onChange={handleChange}
-                    required
-                    placeholder="Passwort"
-                  />
-                </div>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <button type="submit" className="Login-Button">Login</button>
-              </form>
+            <h2 className="h2">Me, Myself & I!</h2>
+            <div className="user-info">
+              <img src={userData.profilePicture} alt="Profilbild" className="profile-picture" />
+              <h3>{userData.username}</h3>
+              <Link to="/edit-profile">
+                <button className="edit-button">Profil bearbeiten</button>
+              </Link>
             </div>
           </div>
         </main>
         <footer>
           <h1 className="slogan">"plan today, change tomorrow!"</h1>
         </footer>
+        <Link to="/logout">
+        <img src={Logout} alt="Logout" class="logout-image"/>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default WGProfile;

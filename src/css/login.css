@@ -97,12 +97,13 @@ button {
 }
 
 .register-button {
-  background-color: #28a745;
+  background-color: #2ba247;
+  width: 150px;
   margin-left: 10px; /* Abstand zwischen den Buttons */
 }
 
 .register-button:hover {
-  background-color: #1e7e34;
+  background-color: #292F36;
 }
 
 .login-container {

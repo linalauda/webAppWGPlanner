@@ -10,6 +10,7 @@ import ToDo from './js/ToDo';
 import Liste from './js/liste';
 import WGProfile from './js/wg-profile';
 import UserProfile from './js/user-profile';
+import Einstellungen from './js/settings';
 import Ranking from './js/ranking';
 import BurgerMenu from './components/burgermenu';
 import BurgerMenuLayout from './components/burgermenu-layout';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/liste" element={<Liste />} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/wg-profile" element={<WGProfile />} />
+        <Route path="/settings" element={<Einstellungen />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/fetch-data" element={<FetchData />} /> {/* Neue Route hinzufügen */}
       </Routes>

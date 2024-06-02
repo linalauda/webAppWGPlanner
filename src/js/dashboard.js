@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import Calendar from '../calendar.png';
@@ -13,6 +14,38 @@ import axios from 'axios';
 import '../css/dashboard.css';
 
 const Dashboard = () => {
+
+  const [userData, setUserData] = useState(null); // State für Nutzerdaten
+
+  // Funktion zum Laden der Nutzerdaten nach dem Einloggen
+  const loadUserData = async () => {
+    try {
+      // API-Aufruf, um die Nutzerdaten zu laden (Beispiel)
+      const response = await axios.get('/api/userData');
+
+      // Überprüfen, ob die Anfrage erfolgreich war und die Nutzerdaten erhalten wurden
+      if (response.data.success) {
+        // Nutzerdaten im State speichern
+        setUserData(response.data.userData);
+      } else {
+        console.error('Fehler beim Laden der Nutzerdaten:', response.data.error);
+      }
+    } catch (error) {
+      console.error('Fehler beim Laden der Nutzerdaten:', error);
+    }
+  };
+
+  // Funktion zum Initialisieren der Nutzerdaten (wird nach dem Einloggen aufgerufen)
+  const initializeUserData = () => {
+    // Hier können Sie entscheiden, wann und wie die Nutzerdaten geladen werden sollen
+    loadUserData(); // Zum Beispiel sofort nach dem Einloggen
+  };
+
+  // useEffect-Hook, um die Nutzerdaten nach dem Rendern des Dashboards zu laden
+  useEffect(() => {
+    initializeUserData();
+  }, []); // Leeres Array als Abhängigkeit bedeutet, dass der Effekt nur einmalig nach dem ersten Rendern ausgeführt wird
+
     return (
   <div class="hintergrund">
          <div>
@@ -55,7 +88,6 @@ const Dashboard = () => {
       </div>
     </div> 
         </main>
-  
         <footer>
         <h1 class="slogan">"plan today, change tomorrow!"</h1>
         <Link to="/logout">

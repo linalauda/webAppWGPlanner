@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../Logo.png';
 import axios from 'axios';
 import '../css/login.css';
@@ -8,6 +9,8 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,21 +24,23 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Simuliere einen API-Aufruf
-    if (email === 'test@example.com' && password === 'Passwort') {
-      alert('Login erfolgreich!');
-
-      // Weiterleitung oder Speicherung des Tokens hier
-    } else {
-      setErrorMessage('Ungültige Eingabe');
+    try {
+      // API-Aufruf, um die E-Mail und das Passwort zu überprüfen
+      const response = await axios.post('/api/login', { email, password });
+  
+      if (response.data.success) {
+        // Wenn die Anmeldedaten korrekt sind, erfolgt die Weiterleitung zum Dashboard
+      } else {
+        // Wenn die Anmeldedaten ungültig sind, wird eine Fehlermeldung angezeigt
+        setErrorMessage('Ungültige Eingabe');
+      }
+    } catch (error) {
+      // Fehlerbehandlung für den API-Aufruf
+      console.error('Fehler beim Anmelden:', error);
+      setErrorMessage('Fehler beim Anmelden. Bitte versuchen Sie es später erneut.');
     }
   };
-
-  const handleRegister = () => {
-    // Registrierungshandling hier
-    alert('Registrierungshandling hier');
-  };
-
+  
   return (
     <div className="hintergrund">
       <div>
@@ -67,8 +72,12 @@ const Login = () => {
                 </div>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                 <div className="button-group">
-                  <button type="submit" className="login-button">Login</button>
-                  <button onClick={handleRegister} className="register-button">Registrieren</button>
+                  <Link to="/dashboard">
+                  <button type="button" class="login-button" onClick={() => navigate('/dashboard')}>Login</button>
+                  </Link>
+                  <Link to="/registration">
+                  <button type="button" className="register-button"> Zur Registrierung</button>
+                  </Link>
                 </div>
               </form>
             </div>

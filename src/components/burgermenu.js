@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './burgermenu.css';
-
 
 const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,16 +18,28 @@ const BurgerMenu = () => {
         </button>
         <nav className={`menu-items ${isOpen ? 'open' : ''}`}>
           <ul>
-                    <li class= "Kalender-Text">Kalender</li>
-                    <li class= "ToDos-Text">To Do's</li>
-                    <li class= "Einkaufsliste-Text">Einkaufsliste</li>
-                    <li class= "Rangliste-Text">Rangliste</li>
-                    <li class= "WGs-Text">WG's</li>
-                    <li class= "Einstellungen-Text">Einstellungen</li>
+            <li className="Kalender-Text">
+              <Link to="/calendar">Kalender</Link>
+            </li>
+            <li className="ToDos-Text">
+              <Link to="/todo">To Do's</Link>
+            </li>
+            <li className="Einkaufsliste-Text">
+              <Link to="/liste">Einkaufsliste</Link>
+            </li>
+            <li className="Rangliste-Text">
+              <Link to="/ranking">Rangliste</Link>
+            </li>
+            <li className="WGs-Text">
+              <Link to="/wg-profile">WG's</Link>
+            </li>
+            <li className="Einstellungen-Text">
+              <Link to="/einstellungen">Einstellungen</Link>
+            </li>
           </ul>
         </nav>
       </div>
     );
-  };
+};
   
-  export default BurgerMenu;
+export default BurgerMenu;

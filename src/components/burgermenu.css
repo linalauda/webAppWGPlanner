@@ -65,7 +65,13 @@
 
 .menu-items a {
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
+  display: block;
+  font-size: 20px;
+}
+
+.menu-items a:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
@@ -75,56 +81,6 @@
   }
 }
 
-.Kalender-Text {
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.Kalender-Text:hover {
-  opacity: 0.6;
-}
-
-.ToDos-Text {
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.ToDos-Text:hover {
-  opacity: 0.6;
-}
-
-.Einkaufsliste-Text {
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.Einkaufsliste-Text:hover {
-  opacity: 0.6;
-}
-
-.Rangliste-Text {
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.Rangliste-Text:hover {
-  opacity: 0.6;
-}
-
-.WGs-Text {
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.WGs-Text:hover {
-  opacity: 0.6;
-}
-
-.Einstellungen-Text {
-  font-size: 20px;
-  color: #ffffff;
-}
-
-.Einstellungen-Text:hover {
-  opacity: 0.6;
+a {
+  text-decoration: none;
 }
