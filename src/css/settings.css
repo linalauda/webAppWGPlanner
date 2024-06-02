@@ -42,5 +42,53 @@
   height: 80vh;
   width: 100vw;
   background-color: rgb(255, 255, 255);
-  flex-direction: row;
+  flex-direction: column;
+}
+
+.notification-toggle-container {
+  display: flex;
+  align-items: center;
+  margin-top: 150px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.notification-text {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1vw;
+  font-weight: bold;
+  color: #292F36;
+  margin-top: 27px;
+  margin-right: 50px;
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 30px;
+  background-color: #E4E4E4;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 220px;
+}
+
+.toggle-switch.enabled {
+  background-color: #3FBF5C;
+}
+
+.toggle-switch .toggle-knob {
+  width: 30px;
+  height: 30px;
+  background-color: #707070;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: left 0.3s, background-color 0.3s;
+}
+
+.toggle-switch .toggle-knob.enabled {
+  left: 30px;
+  background-color: #1C6E2F;
 }

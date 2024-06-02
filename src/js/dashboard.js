@@ -14,7 +14,6 @@ import axios from 'axios';
 import '../css/dashboard.css';
 
 const Dashboard = () => {
-
   const [userData, setUserData] = useState(null); // State für Nutzerdaten
 
   // Funktion zum Laden der Nutzerdaten nach dem Einloggen
@@ -46,56 +45,56 @@ const Dashboard = () => {
     initializeUserData();
   }, []); // Leeres Array als Abhängigkeit bedeutet, dass der Effekt nur einmalig nach dem ersten Rendern ausgeführt wird
 
-    return (
-  <div class="hintergrund">
-         <div>
-        <img src={Logo} alt="Logo" class="logo-image"/>
-        <div class="flex-container-user">
-          <div class="flexbox-grauerKreis">
-          <img src={User} alt="User" class="flex-item-user-image"/>
+  return (
+    <div className="hintergrund">
+      <div>
+        <img src={Logo} alt="Logo" className="logo-image" />
+        <div className="flex-container-user">
+          <div className="flexbox-grauerKreis">
+            <img src={User} alt="User" className="flex-item-user-image" />
           </div>
         </div>
-        </div>
-          
-        <main>
-    <div class= "outer-flex-container"> 
-      <h class="h2">Alles im grünen Bereich</h>    
-      <div class= "flex-container">
-        <div class="flex-item-Kalender">
-          <p class= "flex-item-KalenderText"> Kalender </p>
-          <img src={Calendar} alt="Calendar" class="calendar-image"/>
-        </div>
-        <div class="flex-item-ToDos">
-          <p class= "flex-item-ToDosText"> To Do's </p>
-          <img src={Checklist} alt="Checklist" class="checklist-image"/>
-        </div>
-        <div class="flex-item-Rangliste">
-        <p class= "flex-item-RanglisteText"> Rangliste </p>
-        <img src={Ranking} alt="Ranking" class="ranking-image"/>
-        </div>
-        <div class="flex-item-WGs">
-        <p class= "flex-item-WGsText"> WG </p>
-        <img src={Home} alt="Home" class="wgs-image"/>
-        </div>
-        <div class="flex-item-Einstellungen">
-        <p class= "flex-item-EinstellungenText"> Einstellungen </p>
-        <img src={Settings} alt="Settings" class="einstellungen-image"/>
-        </div>
-        <div class="flex-item-Einkaufsliste">
-        <p class= "flex-item-EinkaufslisteText"> Einkaufsliste </p>
-        <img src={shoppingcart} alt="shoppingcart" class="einkaufsliste-image"/>
-        </div>
       </div>
-    </div> 
-        </main>
-        <footer>
-        <h1 class="slogan">"plan today, change tomorrow!"</h1>
+
+      <main>
+        <div className="outer-flex-container">
+          <h2 className="h2">Alles im grünen Bereich</h2>
+          <div className="flex-container">
+            <Link to="/calendar" className="flex-item-Kalender">
+              <p className="flex-item-KalenderText">Kalender</p>
+              <img src={Calendar} alt="Calendar" className="calendar-image" />
+            </Link>
+            <Link to="/todo" className="flex-item-ToDos">
+              <p className="flex-item-ToDosText">To Do's</p>
+              <img src={Checklist} alt="Checklist" className="checklist-image" />
+            </Link>
+            <Link to="/ranking" className="flex-item-Rangliste">
+              <p className="flex-item-RanglisteText">Rangliste</p>
+              <img src={Ranking} alt="Ranking" className="ranking-image" />
+            </Link>
+            <Link to="/wg-profile" className="flex-item-WGs">
+              <p className="flex-item-WGsText">WG</p>
+              <img src={Home} alt="Home" className="wgs-image" />
+            </Link>
+            <Link to="/settings" className="flex-item-Einstellungen">
+              <p className="flex-item-EinstellungenText">Einstellungen</p>
+              <img src={Settings} alt="Settings" className="einstellungen-image" />
+            </Link>
+            <Link to="/liste" className="flex-item-Einkaufsliste">
+              <p className="flex-item-EinkaufslisteText">Einkaufsliste</p>
+              <img src={shoppingcart} alt="shoppingcart" className="einkaufsliste-image" />
+            </Link>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <h1 className="slogan">"plan today, change tomorrow!"</h1>
         <Link to="/logout">
-        <img src={Logout} alt="Logout" class="logout-image"/>
+          <img src={Logout} alt="Logout" className="logout-image" />
         </Link>
-        </footer>
-      </div>
-    );
-  };
-  
-  export default Dashboard;
+      </footer>
+    </div>
+  );
+};
+
+export default Dashboard;
