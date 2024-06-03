@@ -34,7 +34,7 @@ const BurgerMenu = () => {
               <Link to="/wg-profile">WG's</Link>
             </li>
             <li className="Einstellungen-Text">
-              <Link to="/einstellungen">Einstellungen</Link>
+              <Link to="/settings">Einstellungen</Link>
             </li>
           </ul>
         </nav>
