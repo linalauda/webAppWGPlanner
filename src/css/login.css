@@ -98,7 +98,7 @@ button {
 
 .register-button {
   background-color: #2ba247;
-  width: 150px;
+  width: 100%;
   margin-left: 10px; /* Abstand zwischen den Buttons */
 }
 
