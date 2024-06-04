@@ -97,7 +97,7 @@ function RegistrationPage() {
     }
     console.log(data);
     try {
-      const response = await axios.post('http://coplan.online:8000/api/v1/users/post', data);
+      const response = await axios.post('https://coplan.online:8000/api/v1/users/post', data);
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error creating user:', error);
