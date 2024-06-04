@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 .hintergrund {
@@ -47,54 +48,6 @@
   flex-direction: column;
 }
 
-.notification-toggle-container {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  background-color: rgb(255, 255, 255);
-  text-align: center;
-}
-
-.notification-text {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1vw;
-  font-weight: bold;
-  color: #292F36;
-  margin-top: 27px;
-  margin-right: 50px;
-}
-
-.toggle-switch {
-  width: 60px;
-  height: 30px;
-  background-color: #E4E4E4;
-  border-radius: 15px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-right: 220px;
-}
-
-.toggle-switch.enabled {
-  background-color: #3FBF5C;
-}
-
-.toggle-switch .toggle-knob {
-  width: 30px;
-  height: 30px;
-  background-color: #707070;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: left 0.3s, background-color 0.3s;
-}
-
-.toggle-switch .toggle-knob.enabled {
-  left: 30px;
-  background-color: #1C6E2F;
-}
-
 .logout-image {
   position: fixed;
   bottom: 20px;
@@ -134,4 +87,24 @@
 
 .flex-item-user-image2:hover {
   opacity: 0.6;
+}
+
+.flexcontainer-todos {
+  display: flex;
+  margin-top: 400px;
+  height: 60vh;         
+  width: 40vw;
+  background-color: rgb(255, 255, 255);  
+  flex-direction: column; 
+}
+
+.h3 {
+  font-family: 'Ubuntu', sans-serif;
+  position: relative;
+  font-size: 3vw;
+  font-weight: bold;
+  color: #292F36;
+  top: 300px;
+  text-align: center;
+  margin: auto;
 }

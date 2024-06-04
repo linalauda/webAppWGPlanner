@@ -90,6 +90,7 @@ button {
 
 .login-button {
   background-color: #1c6e2f;
+  border: none;
 }
 
 .login-button:hover {
@@ -99,7 +100,7 @@ button {
 .register-button {
   background-color: #2ba247;
   width: 100%;
-  margin-left: 10px; /* Abstand zwischen den Buttons */
+  border: none;
 }
 
 .register-button:hover {

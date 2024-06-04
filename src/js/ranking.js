@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import Logout from '../log-out.png';
 import User from '../user.png';
@@ -144,7 +145,9 @@ const Ranking = () => {
   return (
     <div className="hintergrund">
       <div>
+        <Link to="/dashboard">
         <img src={Logo} alt="Logo" className="logo-image" />
+        </Link>
         <div className="flex-container-user2">
           <div className="flexbox-grauerKreis2">
             <img src={User} alt="User" className="flex-item-user-image" />
@@ -176,7 +179,9 @@ const Ranking = () => {
       </main>
       <footer>
         <h1 className="slogan">"plan today, change tomorrow!"</h1>
+        <Link to="/">
         <img src={Logout} alt="Logout" className="logout-image" />
+        </Link>
       </footer>
     </div>
   );

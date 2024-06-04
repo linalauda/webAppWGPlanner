@@ -54,7 +54,9 @@ const Settings = () => {
   return (
     <div className="hintergrund">
       <div>
+        <Link to="/dashboard">
         <img src={Logo} alt="Logo" className="logo-image" />
+        </Link>
         <div className="flex-container-user2">
           <div className="flexbox-grauerKreis2">
             <img src={User} alt="User" className="flex-item-user-image" />
