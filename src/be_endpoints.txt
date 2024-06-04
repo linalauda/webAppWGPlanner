@@ -1,0 +1,91 @@
+###User hinzufügen ###
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/api/v1/users/post' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "string",
+  "username": "string",
+  "password": "string",
+  "birthdate": "2024-06-03",
+  "image": "string"
+}'
+
+### alle User bekommen 
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/users/?skip=0&limit=100' \
+  -H 'accept: application/json'
+
+###get user by id
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/users/4' \
+  -H 'accept: application/json'
+
+###update user
+
+ curl -X 'PUT' \
+  'http://127.0.0.1:8000/api/v1/users/4' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "user@example.com",
+  "username": "string",
+  "password": "string",
+  "birthdate": "2024-06-04",
+  "is_active": true
+}'
+
+###delete user 
+
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/api/v1/users/4' \
+  -H 'accept: application/json'
+
+
+###Create Task 
+curl -X 'POST' \
+  'http://127.0.0.1:8000/api/v1/tasks/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "string",
+  "description": "string",
+  "points": 0,
+  "color": "string",
+  "tip": "string"
+}'
+
+### Task bekommen
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/tasks/?skip=3&limit=100' \
+  -H 'accept: application/json'
+
+
+###Task by id bekommen 
+curl -X 'GET' \
+  'http://127.0.0.1:8000/api/v1/tasks/23' \
+  -H 'accept: application/json'
+
+
+###update Task 
+curl -X 'PUT' \
+  'http://127.0.0.1:8000/api/v1/tasks/2' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "string",
+  "description": "string",
+  "points": 0,
+  "color": "string",
+  "tip": "string"
+}'
+
+###delete Task 
+
+curl -X 'DELETE' \
+  'http://127.0.0.1:8000/api/v1/tasks/2' \
+  -H 'accept: application/json'
+
+  
+
