@@ -15,24 +15,57 @@
   
   #task-list {
     background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 10px;
     list-style-type: none;
   }
   
   #aufgabe-button {
-    color: #333;
-    text-decoration: none;
-    background-color: white;
+    background: none;
     border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    color: black;
   }
 
   .popup { 
     border-radius: 4%; 
   }
 
+  .popup, .second-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+    max-width: 100%;
+    max-height: 60%;
+    overflow-y: auto;
+  }
+
   .Button{
+    color: #333;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 25px;
+    width: 130px;
+    height:30px;
+  }
+
+  .close-button{
+    color: #333;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 25px;
+    width: 130px;
+    height:30px;
+  }
+
+  .create-button{
     color: #333;
     text-decoration: none;
     background-color: white;

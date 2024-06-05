@@ -12,6 +12,8 @@ curl -X 'POST' \
   "image": "string"
 }'
 
+
+
 ### alle User bekommen 
 curl -X 'GET' \
   'http://127.0.0.1:8000/api/v1/users/?skip=0&limit=100' \

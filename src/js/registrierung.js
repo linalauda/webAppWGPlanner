@@ -20,6 +20,7 @@ function RegistrationPage() {
     profileImage: null,
     bio: ''
   });
+
   const [showDOBForm, setShowDOBForm] = useState(false);
   const [showAdditionalForm, setShowAdditionalForm] = useState(false);
   const [showThirdForm, setShowThirdForm] = useState(false);
@@ -80,12 +81,6 @@ function RegistrationPage() {
     setUser(prevUser => ({ ...prevUser, [name]: value }));
   };
 
-  const testData = {
-    email: "lina@gmail.com",
-    username: "lina",
-    password: "pass",
-    birthdate: "2000-12-09",
-  }
   
   const createUser = async (user) => {
     const data = {
@@ -94,15 +89,14 @@ function RegistrationPage() {
       password: user.password,
       birthdate: `${user.year}-${user.month < 10 ? `0${user.month}`: user.month}-${user.day < 10 ? `0${user.day}`: user.day}`,
       image: user.profileImage
-    }
-    console.log(data);
+    };
     try {
-      const response = await axios.post('https://localhost:8000/api/v1/users/post', data);
+      const response = await axios.post('http://127.0.0.1:8000/api/v1/users/post', data);
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error creating user:', error);
     }
-  }
+  };
 
   const days = Array.from({ length: 31 }, (_, i) => i + 1);
   const months = Array.from({ length: 12 }, (_, i) => i + 1);
