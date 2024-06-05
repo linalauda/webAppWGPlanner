@@ -2,18 +2,16 @@ import React, { useState, useEffect } from 'react';
 import '../css/calendar.css';
 import Logo from '../Logo.png';
 import Tip from '../Idee.png';
-import Aufgaben from './Aufgaben';
-import { useTasks } from './taskUtils'; 
+import Aufgaben from './Aufgaben'; 
+import axios from 'axios';
 
 function Calendar() {
-  const { tasks } = useTasks(); 
-
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [calendarDays, setCalendarDays] = useState([]);
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDayTasks, setSelectedDayTasks] = useState([]);
-  const [selectedTaskTip, setSelectedTaskTip] = useState(null);
+  const [tasks, setTasksData] = useState([]); 
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -22,6 +20,27 @@ function Calendar() {
     createCalendar(currentYear, currentMonth);
   }, [currentYear, currentMonth]);
 
+  useEffect(() => {
+    fetchTasks(); // Aufgaben beim Laden der Komponente abrufen
+  }, []);
+
+
+  const fetchTasks = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/api/v1/tasks/?skip=3&limit=100');
+      const tasks = response.data;
+      // Setze die Aufgaben und aktualisiere den Kalender
+      createCalendar(currentYear, currentMonth, tasks);
+    } catch (error) {
+      console.error('Fehler beim Laden der Aufgaben:', error);
+    }
+  };
+
+  const setTasks = (newTasks) => {
+    // Setze die Aufgaben und aktualisiere den Kalender
+    createCalendar(currentYear, currentMonth, newTasks);
+  };
+  
   function createCalendar(year = new Date().getFullYear(), month = new Date().getMonth()) {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDayOfMonth = new Date(year, month, 1).getDay();
@@ -93,13 +112,11 @@ function Calendar() {
     }
   }, [selectedDay, tasks, currentYear, currentMonth]);
 
-  const showTaskTip = (taskId) => {
-    const task = tasks.find(task => task.id === taskId);
-    if (task && task.tip) {
-      setSelectedTaskTip(task.tip);
-    }
-  };
-
+  function showTaskTip(taskId) {
+    // Implementierung der Funktion
+    console.log('Showing task tip for task with ID:', taskId);
+  }
+  
   return (
     <div className="hintergrund">
       <img src={Logo} alt="Logo" id="logo-image"/>
@@ -161,7 +178,6 @@ function Calendar() {
                 <tbody >
                   {selectedDayTasks.map((task, index) => (
                     <tr key={index}>
-                
                       <td className="spalte"><span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}</td>
                       <td className="spalte">{task.person}</td>
                       <td className="spalte">

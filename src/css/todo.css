@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-
 .hintergrund {
   background-color: #ffffff;
 }
@@ -45,45 +44,74 @@
   height: 80vh;
   width: 100vw;
   background-color: rgb(255, 255, 255);
-  flex-direction: row;
-}
-
-.user-info {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.profile-picture {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
-.edit-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #1c6e2f;
-  color: #ffffff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  width:10vw;
-}
-
-.edit-button:hover {
-  background-color: #292F36;
+  flex-direction: column;
 }
 
 .logout-image {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  flex:0.8;
+  flex: 0.8;
   width: 2vw;
 }
 
 .logout-image:hover {
   opacity: 0.6;
+}
+
+.flexbox-grauerKreis2 {
+  display: flex;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: 150px;
+  width: 4vw;             
+  height: 4vw;           
+  background-color: #F1EBEB;  
+  border-radius: 50%;  
+  flex: 0.3;
+  overflow: hidden; 
+  align-items: center;
+  justify-content: center;  
+}
+
+.flexbox-grauerKreis2:hover {
+  opacity: 0.6;
+}
+
+.flex-item-user-image2 {
+  display: flex;
+  width: 2vw;
+  flex: 0.3;
+}
+
+.flex-item-user-image2:hover {
+  opacity: 0.6;
+}
+
+.scrollable-container {
+  width: 40vw;
+  height: 62vh;
+  overflow-y: auto;
+  margin-top: 150px;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  border: 5px solid;
+  margin: 40px;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.Text-keineAufgaben {
+  font-weight: bold;
+  color: #292F36;
+  font-size: 1vw;
+  font-family: 'Ubuntu', sans-serif;
+  margin-top: 200px;
 }
