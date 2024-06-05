@@ -118,13 +118,13 @@ function Aufgaben() {
           <h2>Aufgabe hinzufügen</h2>
           <button className="close-button" onClick={togglePopup}>Schließen</button>
           <button className="create-button" onClick={addTaskHandler}>Hinzufügen</button>
-          <p>
+          <p class="Auswahltext">
             Aufgabe: {selectedTask ? selectedTask.title : <button className="Button" onClick={toggleSecondPopup}>Aufgabe wählen</button>}
           </p>
-          <p>
+          <p class="Auswahltext">
             Benutzer: {selectedUser ? selectedUser.username : <button className="Button" onClick={toggleUserPopup}>Benutzer wählen</button>}
           </p>
-          <p>
+          <p class="Auswahltext">
             Datum:
             <input type="date" value={selectedDate} onChange={e => setSelectedDate(e.target.value)} />
           </p>
@@ -144,7 +144,7 @@ function Aufgaben() {
         </div>
       )}
       {showUserPopup && (
-        <div className="popup">
+        <div className="popup2">
           <h2>Benutzer wählen</h2>
           <button className="close-button" onClick={toggleUserPopup}>Schließen</button>
           <ul id="user-list">

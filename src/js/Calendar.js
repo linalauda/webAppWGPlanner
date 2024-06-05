@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/calendar.css';
 import Logo from '../Logo.png';
+import User from '../user.png';
+import Logout from '../log-out.png';
 import Tip from '../Idee.png';
 import Aufgaben from './Aufgaben'; 
 import axios from 'axios';
@@ -119,8 +122,19 @@ function Calendar() {
   
   return (
     <div className="hintergrund">
+       <Link to="/dashboard">
       <img src={Logo} alt="Logo" id="logo-image"/>
+      </Link>
       <h1 id="slogan">"plan today, change tomorrow!"</h1>
+      <Link to="/user-profile">
+      <div className="flex-container-user2">
+          <div className="flexbox-grauerKreis2">
+            <img src={User} alt="User" className="flex-item-user-image" />
+          </div>
+          </div>
+          </Link>
+          <div className="outer-flex-container">
+          <h3 className="h2">Alles auf einen Blick!</h3>
       <div className="calendar">
         <div className="calendar-header">
           <h2 id="month-year">
@@ -162,8 +176,8 @@ function Calendar() {
           <div className="modal">
             <div className="modal-content">
               <span className="close" onClick={() => setSelectedDay(null)}>&times;</span>
-              <h3 style={{fontWeight: 'bold', fontSize: '40px'}}>{selectedDay}</h3>
-              <p style={{fontWeight: 'bold'}}>Anstehende Aufgaben:</p>
+              <h3 style={{fontWeight: 'bold', fontSize: '60px',margin:'10px'}}>{selectedDay}</h3>
+              <p style={{fontWeight: 'bold', fontSize: '20px', margin:'20px'}}>Anstehende Aufgaben:</p>
               <table> {/* Tabelle für Aufgaben und Buttons */}
                 <thead>
                   <tr>
@@ -200,6 +214,10 @@ function Calendar() {
       <div id="aufgaben">
         <Aufgaben /> 
       </div>
+      <Link to="/logout">
+            <img src={Logout} alt="Logout" className="logout-image"/>
+          </Link>
+    </div>
     </div>
   );
 }

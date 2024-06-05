@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import EditProfile from './EditProfile';
 import Logout from '../log-out.png';
-import '../css/wg-profile.css';
+import '../css/user-profile.css';
 
 const WGProfile = () => {
   const [userData, setUserData] = useState({

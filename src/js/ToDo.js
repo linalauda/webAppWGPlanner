@@ -22,11 +22,13 @@ function TaskList() {
        <Link to="/dashboard">
         <img src={Logo} alt="Logo" className="logo-image" />
         </Link>
+        <Link to="/user-profile">
         <div className="flex-container-user2">
           <div className="flexbox-grauerKreis2">
             <img src={User} alt="User" className="flex-item-user-image" />
           </div>
           </div>
+          </Link>
       <div className="outer-flex-container">
         <h2 className="h2">Deine grüne Bucket-List {currentUser}</h2>
         <div className="scrollable-container">

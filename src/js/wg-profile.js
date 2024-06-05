@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
+import User from '../user.png';
 import EditProfile from './EditProfile';
 import Logout from '../log-out.png';
 import '../css/wg-profile.css';
@@ -32,6 +33,13 @@ const WGProfile = () => {
       <div>
         <Link to="/dashboard">
         <img src={Logo} alt="Logo" className="logo-image" />
+        </Link>
+        <Link to="/user-profile">
+        <div className="flex-container-user2">
+          <div className="flexbox-grauerKreis2">
+            <img src={User} alt="User" className="flex-item-user-image" />
+          </div>
+        </div>
         </Link>
         <main>
           <div className="outer-flex-container">

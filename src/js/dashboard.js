@@ -49,11 +49,13 @@ const Dashboard = () => {
     <div className="hintergrund">
       <div>
         <img src={Logo} alt="Logo" className="logo-image" />
+        <Link to="/user-profile">
         <div className="flex-container-user">
           <div className="flexbox-grauerKreis">
             <img src={User} alt="User" className="flex-item-user-image" />
           </div>
         </div>
+        </Link>
       </div>
 
       <main>
