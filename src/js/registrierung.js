@@ -199,7 +199,7 @@ function RegistrationPage() {
               <div>
                 <input type="password" id="confirmPassword" name="confirmPassword" value={user.confirmPassword} onChange={handleChange} required placeholder='Passwort bestätigen' />
               </div>
-              <button type="button" id="login" onClick={() => navigate('/login')}>Zum Log-In</button>
+              <button type="button" id="login" onClick={() => navigate('/')}>Zum Log-In</button>
               <button type="submit" id="bestätigen">Weiter</button>
             </form>
           </div>
