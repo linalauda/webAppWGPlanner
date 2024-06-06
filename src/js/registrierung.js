@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/registrierungs.css';
 import Logo from '../Logo.png';
 import User from '../user.png';
@@ -108,9 +109,9 @@ function RegistrationPage() {
       <img src={Logo} alt="Logo" id="logo-image" />
       <h1 id="slogan">"plan today, change tomorrow!"</h1>
       <div className="header">
-        <h2>Willkommen bei</h2>
-        <h2 style={{ color: '#1c6e2f' }}>CoPlan</h2>
-        <h2>!</h2>
+        <h2 style={{ fontSize: '2.5vw', fontWeight: 'bold' }}>Willkommen bei</h2>
+        <h2 style={{ color: '#1c6e2f', fontSize: '2.5vw', fontWeight: 'bold' }}>CoPlan</h2>
+        <h2 style={{ fontSize: '2.5vw', fontWeight: 'bold' }}>!</h2>
       </div>
       <div className="registrierung">
         {showDOBForm ? (
@@ -181,6 +182,9 @@ function RegistrationPage() {
               <p><strong>Geburtsdatum:</strong> {`${user.day}.${user.month}.${user.year}`}</p>
               {user.profileImage && <img src={user.profileImage} alt="Profile" className="profile-image"/>}
               <p><strong>Über dich:</strong> {user.bio}</p>
+              <Link to="/">
+                  <button type="button" class="login-button" onClick={() => navigate('/dashboard')}>Zum Login</button>
+                  </Link>
             </div>
           </div>
         ) : (

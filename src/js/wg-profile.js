@@ -108,6 +108,9 @@ const WGProfile = () => {
                         <button className="delete-button" onClick={() => removeItem(index)}>
                           Löschen
                         </button>
+                        <button className="beitreten-button">
+                          Beitreten
+                        </button>
                       </li>
                     ))}
                   </ul>

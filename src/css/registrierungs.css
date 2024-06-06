@@ -31,8 +31,8 @@
   #bestätigen {
     padding: 8px;
     margin: 5px 0;
-    margin-top: 15px;
-    border: 1px solid #ccc;
+    margin-top: 0px;
+    margin-left: 20px;
     border-radius: 25px;
     width: 100px;
     font-size: 12px;
@@ -40,16 +40,25 @@
     color: white;
   }
 
+  #bestätigen:hover {
+    background-color:  #292F36;
+  }
+
   #zurück{
     padding: 8px;
     margin: 5px 0;
     margin-top: 15px;
-    margin-right: 60px;
+    margin-right: 180px;
     border: none;
     border-radius: 25px;
     width: 100px;
     font-size: 12px;
-    background-color: transparent;
+    background-color: #1c6e2f;
+    color: #ffffff;
+  }
+
+  #zurück:hover{
+    background-color:#292F36;
   }
 
   #login{
@@ -61,9 +70,14 @@
     border-radius: 25px;
     width: 100px;
     font-size: 12px;
-    background-color: transparent;
+    background-color: #1c6e2f;
+    color: #ffffff;
   }
   
+  #login:hover{
+    background-color: #292F36;
+  }
+
   .header {
     display: flex;
     justify-content: center;
@@ -151,4 +165,10 @@
   .checked {
     width: 250px;
     height: auto;
+  }
+
+  .zumLogin-button {
+    background-color:  #1c6e2f;
+    width: 100%;
+    border: none;
   }
