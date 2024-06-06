@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/calendar.css';
 import Logo from '../Logo.png';
-import User from '../user.png';
-import Logout from '../log-out.png';
 import Tip from '../Idee.png';
 import Aufgaben from './Aufgaben'; 
-import axios from 'axios';
+import { useTasks } from './taskUtils'; 
 
 function Calendar() {
+  const { tasks } = useTasks(); 
+
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [calendarDays, setCalendarDays] = useState([]);
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDayTasks, setSelectedDayTasks] = useState([]);
-  const [tasks, setTasksData] = useState([]); 
+  const [selectedTaskTip, setSelectedTaskTip] = useState(null);
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -23,27 +22,6 @@ function Calendar() {
     createCalendar(currentYear, currentMonth);
   }, [currentYear, currentMonth]);
 
-  useEffect(() => {
-    fetchTasks(); // Aufgaben beim Laden der Komponente abrufen
-  }, []);
-
-
-  const fetchTasks = async () => {
-    try {
-      const response = await axios.get('http://localhost:8000/api/v1/tasks/?skip=3&limit=100');
-      const tasks = response.data;
-      // Setze die Aufgaben und aktualisiere den Kalender
-      createCalendar(currentYear, currentMonth, tasks);
-    } catch (error) {
-      console.error('Fehler beim Laden der Aufgaben:', error);
-    }
-  };
-
-  const setTasks = (newTasks) => {
-    // Setze die Aufgaben und aktualisiere den Kalender
-    createCalendar(currentYear, currentMonth, newTasks);
-  };
-  
   function createCalendar(year = new Date().getFullYear(), month = new Date().getMonth()) {
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDayOfMonth = new Date(year, month, 1).getDay();
@@ -115,26 +93,17 @@ function Calendar() {
     }
   }, [selectedDay, tasks, currentYear, currentMonth]);
 
-  function showTaskTip(taskId) {
-    // Implementierung der Funktion
-    console.log('Showing task tip for task with ID:', taskId);
-  }
+  const showTaskTip = (taskId) => {
+    const task = tasks.find(task => task.id === taskId);
+    if (task && task.tip) {
+      setSelectedTaskTip(task.tip);
+    }
+  };
   
   return (
     <div className="hintergrund">
-       <Link to="/dashboard">
       <img src={Logo} alt="Logo" id="logo-image"/>
-      </Link>
       <h1 id="slogan">"plan today, change tomorrow!"</h1>
-      <Link to="/user-profile">
-      <div className="flex-container-user2">
-          <div className="flexbox-grauerKreis2">
-            <img src={User} alt="User" className="flex-item-user-image" />
-          </div>
-          </div>
-          </Link>
-          <div className="outer-flex-container">
-          <h3 className="h2">Alles auf einen Blick!</h3>
       <div className="calendar">
         <div className="calendar-header">
           <h2 id="month-year">
@@ -176,8 +145,8 @@ function Calendar() {
           <div className="modal">
             <div className="modal-content">
               <span className="close" onClick={() => setSelectedDay(null)}>&times;</span>
-              <h3 style={{fontWeight: 'bold', fontSize: '60px',margin:'10px'}}>{selectedDay}</h3>
-              <p style={{fontWeight: 'bold', fontSize: '20px', margin:'20px'}}>Anstehende Aufgaben:</p>
+              <h3 style={{fontWeight: 'bold', fontSize: '40px'}}>{selectedDay}</h3>
+              <p style={{fontWeight: 'bold'}}>Anstehende Aufgaben:</p>
               <table> {/* Tabelle für Aufgaben und Buttons */}
                 <thead>
                   <tr>
@@ -192,6 +161,7 @@ function Calendar() {
                 <tbody >
                   {selectedDayTasks.map((task, index) => (
                     <tr key={index}>
+                
                       <td className="spalte"><span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}</td>
                       <td className="spalte">{task.person}</td>
                       <td className="spalte">
@@ -214,10 +184,6 @@ function Calendar() {
       <div id="aufgaben">
         <Aufgaben /> 
       </div>
-      <Link to="/logout">
-            <img src={Logout} alt="Logout" className="logout-image"/>
-          </Link>
-    </div>
     </div>
   );
 }
