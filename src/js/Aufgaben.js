@@ -31,12 +31,12 @@ function Aufgaben() {
 
   useEffect(() => {
     // Alle Benutzer laden
-    axios.get('http://127.0.0.1:8000/api/v1/users/?skip=0&limit=100')
+    axios.get('https://85.215.136.189/api/v1/users/?skip=0&limit=100')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Fehler beim Laden der Benutzer:', error));
 
     // Alle Aufgaben laden
-    axios.get('http://127.0.0.1:8000/api/v1/tasks/?skip=0&limit=100')
+    axios.get('https://85.215.136.189/api/v1/tasks/?skip=0&limit=100')
       .then(response => setTasks(response.data))
       .catch(error => console.error('Fehler beim Laden der Aufgaben:', error));
   }, []);
@@ -81,7 +81,7 @@ function Aufgaben() {
         user: selectedUser
       };
 
-      axios.post('http://127.0.0.1:8000/api/v1/tasks/', {
+      axios.post('https://85.215.136.189/api/v1/tasks/', {
         title: newTask.title,
         description: newTask.description,
         points: newTask.points,

@@ -12,7 +12,6 @@ import WGProfile from './js/wg-profile';
 import UserProfile from './js/user-profile';
 import Einstellungen from './js/settings';
 import Ranking from './js/ranking';
-import BurgerMenu from './components/burgermenu';
 import BurgerMenuLayout from './components/burgermenu-layout';
 import FetchData from './FetchData'; // Neue Komponente importieren
 import './css/index.css';
