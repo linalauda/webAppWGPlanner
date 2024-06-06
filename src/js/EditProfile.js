@@ -8,7 +8,7 @@ const EditProfile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put('/api/user', { profilePicture, username }); // API-Endpunkt anpassen
+      await axios.put('http://127.0.0.1:8000/api/v1/users/updatebyid/', { profilePicture, username }); // API-Endpunkt anpassen 
       alert('Profil aktualisiert');
     } catch (error) {
       console.error('Fehler beim Aktualisieren des Profils', error);

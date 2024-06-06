@@ -81,7 +81,7 @@ function Aufgaben() {
         user: selectedUser
       };
 
-      axios.post('https://85.215.136.189/api/v1/tasks/', {
+      axios.post('http://localhost:8000/api/v1/tasks/', {
         title: newTask.title,
         description: newTask.description,
         points: newTask.points,

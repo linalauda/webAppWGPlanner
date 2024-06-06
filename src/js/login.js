@@ -26,8 +26,7 @@ const Login = () => {
 
     try {
       // API-Aufruf, um die E-Mail und das Passwort zu überprüfen
-      const response = await axios.post('/api/login', { email, password });
-  
+      const response = await axios.post('http://127.0.0.1:8000/api/v1/token/login', { email, password }); 
       if (response.data.success) {
         // Wenn die Anmeldedaten korrekt sind, erfolgt die Weiterleitung zum Dashboard
       } else {

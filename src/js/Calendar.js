@@ -30,7 +30,7 @@ function Calendar() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('https://85.215.136.189/api/v1/tasks/?skip=3&limit=100');
+      const response = await axios.get('http://localhost:8000/api/v1/tasks/?skip=3&limit=100');
       const tasks = response.data;
       // Setze die Aufgaben und aktualisiere den Kalender
       createCalendar(currentYear, currentMonth, tasks);

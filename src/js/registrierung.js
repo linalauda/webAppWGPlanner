@@ -91,7 +91,7 @@ function RegistrationPage() {
       image: user.profileImage
     };
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/users/post', data);
+      const response = await axios.post('http://localhost:8000/api/v1/users/', data); //http://127.0.0.1:8000/api/v1/users
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error creating user:', error);
