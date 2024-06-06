@@ -72,10 +72,6 @@
   width:10vw;
 }
 
-.edit-button:hover {
-  background-color: #292F36;
-}
-
 .logout-image {
   position: fixed;
   bottom: 20px;

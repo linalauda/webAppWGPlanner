@@ -31,7 +31,7 @@ const BurgerMenu = () => {
               <Link to="/ranking">Rangliste</Link>
             </li>
             <li className="WGs-Text">
-              <Link to="/wg-profile">WG's</Link>
+              <Link to="/wg-profile">WG</Link>
             </li>
             <li className="Einstellungen-Text">
               <Link to="/settings">Einstellungen</Link>
