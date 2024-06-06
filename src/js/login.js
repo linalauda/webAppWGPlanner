@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../Logo.png';
 import axios from 'axios';
 import '../css/login.css';
+import initialUsers from './userUtils.js';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,22 +22,18 @@ const Login = () => {
     }
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  
 
-    try {
-      // API-Aufruf, um die E-Mail und das Passwort zu überprüfen
-      const response = await axios.post('http://127.0.0.1:8000/api/v1/token/login', { email, password }); 
-      if (response.data.success) {
-        // Wenn die Anmeldedaten korrekt sind, erfolgt die Weiterleitung zum Dashboard
-      } else {
-        // Wenn die Anmeldedaten ungültig sind, wird eine Fehlermeldung angezeigt
-        setErrorMessage('Ungültige Eingabe');
-      }
-    } catch (error) {
-      // Fehlerbehandlung für den API-Aufruf
-      console.error('Fehler beim Anmelden:', error);
-      setErrorMessage('Fehler beim Anmelden. Bitte versuchen Sie es später erneut.');
+  
+
+  const handleLogin =  (e) => {
+    e.preventDefault();
+    
+    const user = initialUsers.find(user => user.email === email && user.passwort === password);
+    if (user) {
+      navigate('/dashboard');
+    } else {
+      setErrorMessage('Ungültige Eingabe');
     }
   };
   
@@ -71,9 +68,7 @@ const Login = () => {
                 </div>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                 <div className="button-group">
-                  <Link to="/dashboard">
-                  <button type="button" class="login-button" onClick={() => navigate('/dashboard')}>Login</button>
-                  </Link>
+                  <button type="submit" class="login-button">Login</button>
                   <Link to="/registration">
                   <button type="button" className="register-button"> Zur Registrierung</button>
                   </Link>

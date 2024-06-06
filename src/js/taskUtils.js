@@ -41,7 +41,3 @@ export function useTasks() {
     return { tasks, setTasks, completeTask };
 }
 
-// Function to add a new task
-export function addTask(newTask, setTasks) {
-    setTasks(prevTasks => [...prevTasks, newTask]);
-}
