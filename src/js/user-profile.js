@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import EditProfile from './EditProfile';
 import Logout from '../log-out.png';
-import '../css/wg-profile.css';
+import '../css/user-profile.css';
 
 const WGProfile = () => {
   const [userData, setUserData] = useState({
@@ -39,9 +39,6 @@ const WGProfile = () => {
             <div className="user-info">
               <img src={userData.profilePicture} alt="Profilbild" className="profile-picture" />
               <h3>{userData.username}</h3>
-              <Link to="/edit-profile">
-                <button className="edit-button">Profil bearbeiten</button>
-              </Link>
             </div>
           </div>
         </main>

@@ -31,12 +31,12 @@ function Aufgaben() {
 
   useEffect(() => {
     // Alle Benutzer laden
-    axios.get('http://127.0.0.1:8000/api/v1/users/?skip=0&limit=100')
+    axios.get('https://85.215.136.189/api/v1/users/?skip=0&limit=100')
       .then(response => setUsers(response.data))
       .catch(error => console.error('Fehler beim Laden der Benutzer:', error));
 
     // Alle Aufgaben laden
-    axios.get('http://127.0.0.1:8000/api/v1/tasks/?skip=0&limit=100')
+    axios.get('https://85.215.136.189/api/v1/tasks/?skip=0&limit=100')
       .then(response => setTasks(response.data))
       .catch(error => console.error('Fehler beim Laden der Aufgaben:', error));
   }, []);
@@ -81,7 +81,7 @@ function Aufgaben() {
         user: selectedUser
       };
 
-      axios.post('http://127.0.0.1:8000/api/v1/tasks/', {
+      axios.post('https://85.215.136.189/api/v1/tasks/', {
         title: newTask.title,
         description: newTask.description,
         points: newTask.points,
@@ -118,13 +118,13 @@ function Aufgaben() {
           <h2>Aufgabe hinzufügen</h2>
           <button className="close-button" onClick={togglePopup}>Schließen</button>
           <button className="create-button" onClick={addTaskHandler}>Hinzufügen</button>
-          <p>
+          <p class="Auswahltext">
             Aufgabe: {selectedTask ? selectedTask.title : <button className="Button" onClick={toggleSecondPopup}>Aufgabe wählen</button>}
           </p>
-          <p>
+          <p class="Auswahltext">
             Benutzer: {selectedUser ? selectedUser.username : <button className="Button" onClick={toggleUserPopup}>Benutzer wählen</button>}
           </p>
-          <p>
+          <p class="Auswahltext">
             Datum:
             <input type="date" value={selectedDate} onChange={e => setSelectedDate(e.target.value)} />
           </p>
@@ -144,7 +144,7 @@ function Aufgaben() {
         </div>
       )}
       {showUserPopup && (
-        <div className="popup">
+        <div className="popup2">
           <h2>Benutzer wählen</h2>
           <button className="close-button" onClick={toggleUserPopup}>Schließen</button>
           <ul id="user-list">

@@ -91,7 +91,7 @@ function RegistrationPage() {
       image: user.profileImage
     };
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/v1/users/post', data);
+      const response = await axios.post('https://85.215.136.189/api/v1/users/post', data);
       console.log('Response:', response.data);
     } catch (error) {
       console.error('Error creating user:', error);
@@ -199,7 +199,7 @@ function RegistrationPage() {
               <div>
                 <input type="password" id="confirmPassword" name="confirmPassword" value={user.confirmPassword} onChange={handleChange} required placeholder='Passwort bestätigen' />
               </div>
-              <button type="button" id="login" onClick={() => navigate('/login')}>Zum Log-In</button>
+              <button type="button" id="login" onClick={() => navigate('/')}>Zum Log-In</button>
               <button type="submit" id="bestätigen">Weiter</button>
             </form>
           </div>
