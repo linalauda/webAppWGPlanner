@@ -175,17 +175,9 @@ function RegistrationPage() {
         ) : showFinishedForm ? (
           <div className="finished-form">
             <img src={Checked} alt="Checked" className="checked"/>
-            <div className="user-info">
-              <h3>Registrierungsdaten</h3>
-              <p><strong>Email:</strong> {user.email}</p>
-              <p><strong>Username:</strong> {user.username}</p>
-              <p><strong>Geburtsdatum:</strong> {`${user.day}.${user.month}.${user.year}`}</p>
-              {user.profileImage && <img src={user.profileImage} alt="Profile" className="profile-image"/>}
-              <p><strong>Über dich:</strong> {user.bio}</p>
               <Link to="/">
                   <button type="button" class="login-button" onClick={() => navigate('/dashboard')}>Zum Login</button>
                   </Link>
-            </div>
           </div>
         ) : (
           <div>
