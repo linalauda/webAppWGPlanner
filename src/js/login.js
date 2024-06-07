@@ -22,9 +22,6 @@ const Login = () => {
     }
   };
 
-  
-
-  
 
   const handleLogin =  (e) => {
     e.preventDefault();
@@ -83,6 +80,7 @@ const Login = () => {
       </div>
     </div>
   );
+
 };
 
 export default Login;

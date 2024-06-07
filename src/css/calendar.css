@@ -127,6 +127,11 @@
   font-size: 20px;
 }
 
+.modal-content p {
+  text-align: left;
+  font-size: 20px;
+}
+
 .close {
   position: absolute;
   top: 140px;
@@ -146,9 +151,10 @@
 
 #tip-image {
   width: 50%; 
+  align-content: center;
 }
 
-.edit-button{
+.edit-button-calendar{
   background-color: #1c6e2f;
   color: white;
   border-radius: 25px;
@@ -158,10 +164,11 @@
   
 }
 
-.delete-button{
+.delete-button-calendar{
   border-radius: 25px;
   border-color: #1c6e2f;
   border-style: solid;
+  color: black;
   width: 70px;
   height: 30px;
 }

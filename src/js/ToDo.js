@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { useTasks } from './taskUtils'; // Ensure the import path is correct
+import { useTasks } from './taskUtils'; 
 import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import User from '../user.png';
 import Logout from '../log-out.png';
-import axios from 'axios';
 import '../css/todo.css';
+import initialUsers from './userUtils.js';
+
 
 function TaskList() {
-  const [currentUser, setCurrentUser] = useState('nutzer1'); // Define the current user in the TaskList component
-  const { tasks, completeTask } = useTasks(); // Include completeTask function
+  const [currentUser, setCurrentUser] = useState(initialUsers[0]); 
+  const { tasks, completeTask } = useTasks(); 
 
   const userTasks = tasks.filter(task => task.person === currentUser);
 
   const handleCompleteTask = (taskId) => {
-    completeTask(taskId); // Mark the task as completed
+    completeTask(taskId); 
   };
 
   return (
@@ -30,7 +31,7 @@ function TaskList() {
           </div>
           </Link>
       <div className="outer-flex-container">
-        <h2 className="h2">Deine grüne Bucket-List {currentUser}</h2>
+        <h2 className="h2">Deine grüne Bucket-List {currentUser.username}</h2>
         <div className="scrollable-container">
           {userTasks.length > 0 ? (
             <ul className="task-list">

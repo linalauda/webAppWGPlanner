@@ -38,20 +38,15 @@
   margin: auto;
 }
 
-.outer-flex-container {
+.outer-flex-container-userprofile {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
-  width: 100vw;
+  margin-top: 200px;
   background-color: rgb(255, 255, 255);
   flex-direction: row;
 }
 
-.user-info {
-  text-align: center;
-  margin-top: 20px;
-}
 
 .profile-picture {
   margin-top: 50px;
@@ -59,17 +54,6 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-}
-
-.edit-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #1c6e2f;
-  color: #ffffff;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  width:10vw;
 }
 
 .logout-image {
@@ -83,3 +67,18 @@
 .logout-image:hover {
   opacity: 0.6;
 }
+
+.beschreibung {
+  border: 1px solid #292F36;
+  border-radius: 25px;
+  justify-content: center;
+  margin-left: 500px;
+  margin-right: 500px;
+}
+
+.beschreibung p {
+  font-size: 15px;
+  text-align: center;
+  margin-right: 200px;
+}
+

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Logo from '../Logo.png';
 import Logout from '../log-out.png';
 import User from '../user.png';
-import axios from 'axios';
 import '../css/liste.css';
 
 function ShoppingList() {

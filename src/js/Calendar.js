@@ -13,7 +13,6 @@ function Calendar() {
   const [calendarDays, setCalendarDays] = useState([]);
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDayTasks, setSelectedDayTasks] = useState([]);
-  const [selectedTaskTip, setSelectedTaskTip] = useState(null);
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -84,7 +83,6 @@ function Calendar() {
     if (selectedDay !== null) {
       const tasksForSelectedDay = tasks.filter(task => {
         const taskDate = new Date(task.date);
-        const taskPerson = new String(task.person);
         return taskDate.getFullYear() === currentYear &&
                taskDate.getMonth() === currentMonth &&
                taskDate.getDate() === selectedDay;
@@ -93,12 +91,6 @@ function Calendar() {
     }
   }, [selectedDay, tasks, currentYear, currentMonth]);
 
-  const showTaskTip = (taskId) => {
-    const task = tasks.find(task => task.id === taskId);
-    if (task && task.tip) {
-      setSelectedTaskTip(task.tip);
-    }
-  };
   
   return (
     <div className="hintergrund">
@@ -121,7 +113,7 @@ function Calendar() {
           {calendarDays.map((week, weekIndex) => (
             <div key={weekIndex} className="calendar-week">
               {week.map((day, dayIndex) => {
-                const taskColor = day && day.tasks.length > 0 ? '#1c6e2f' : ''; // Setze die Farbe basierend auf der Anzahl der Aufgaben
+                const taskColor = day && day.tasks.length > 0 ? '#1c6e2f' : '';
 
                 return (
                   <button
@@ -147,7 +139,7 @@ function Calendar() {
               <span className="close" onClick={() => setSelectedDay(null)}>&times;</span>
               <h3 style={{fontWeight: 'bold', fontSize: '40px'}}>{selectedDay}</h3>
               <p style={{fontWeight: 'bold'}}>Anstehende Aufgaben:</p>
-              <table> {/* Tabelle für Aufgaben und Buttons */}
+              <table>
                 <thead>
                   <tr>
                     <th></th>
@@ -163,15 +155,17 @@ function Calendar() {
                     <tr key={index}>
                 
                       <td className="spalte"><span style={{ color: task.task.color }}>&#8212; </span>{task.task.title}</td>
-                      <td className="spalte">{task.person}</td>
                       <td className="spalte">
-                        <button className="tip-button" onClick={() => showTaskTip(task.id)}>
+                        <img src={task.person.image} alt={task.person.name} style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                      </td>
+                      <td className="spalte">
+                        <button className="tip-button">
                           <img src={Tip} alt="Tip" id="tip-image"/>
                         </button>
                       </td>
                       <td></td>
-                      <td className="spalte"><button className="edit-button">Ändern</button></td>
-                      <td className="spalte"><button className="delete-button">Löschen</button></td>
+                      <td className="spalte"><button className="edit-button-calendar">Ändern</button></td>
+                      <td className="spalte"><button className="delete-button-calendar">Löschen</button></td>
                     </tr>
                   ))}
                 </tbody>
@@ -180,7 +174,6 @@ function Calendar() {
           </div>
         </div>
       )}
-      {/* Andere Modal-Elemente hier ... */}
       <div id="aufgaben">
         <Aufgaben /> 
       </div>
